@@ -571,7 +571,6 @@ var temp=[];
 </script>
 <script>
 {% for l in farm.Poly.coordinates.0 %}
-                            var coordinates={{l|safe}};
                              l.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
                        {% endfor %}
 farm.push(l);
@@ -584,12 +583,7 @@ house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 well.push(["1",51.508742,-0.120850,"well",50]);
 
-farm.push([
-{lat: 25.774, lng: -80.190},
-          {lat: 18.466, lng: -66.118},
-          {lat: 32.321, lng: -64.757},
-          {lat: 25.774, lng: -80.190}
-        ]);
+
 function myMap() {
 var mapProp1= {
     center:new google.maps.LatLng(51.508742,-0.120850),
