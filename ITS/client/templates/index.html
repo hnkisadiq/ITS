@@ -566,14 +566,13 @@ well.push(l);
 </script>
 {% endfor %}
       <script>
-var farm=[];
 var temp=[]; 
 </script>
 {% for i in farm %}
 <script>
 var l=[];
-l.push({{i.poly.coordinates.0}});
-//farm.push(l);
+l.push({{i.poly.coordinates.0.0}});
+temp.push(l);
 </script>
 {% endfor %}
     </div>
@@ -583,6 +582,15 @@ l.push({{i.poly.coordinates.0}});
 house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 well.push(["1",51.508742,-0.120850,"well",50]);
+var farm=[];
+ var k=[];
+  var l;
+for (i = 0; i < temp.length; i++) {
+  l=temp.i;
+  for (i = 0; i < l.length; i++) {
+      k.push({lat:l.i.0, lng:temp.i.1});
+}
+}
 
 farm.push([
 {lat: 25.774, lng: -80.190},
@@ -683,7 +691,7 @@ function addFarm(marker){
         bermudaTriangle.setMap(map3);
 }
 }
-document.getElementById("info").innerHTML=house;
+document.getElementById("info").innerHTML=farm;
 </script>
     <!-- Bootstrap core JavaScript -->
     <script async defer
