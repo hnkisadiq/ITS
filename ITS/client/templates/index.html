@@ -546,8 +546,8 @@ var house=[];
 <script>
 var l=[];
 l.push({{i.id|safe}});
-l.push({{r}});
-l.push({{temp}});
+l.push({{i.h_point|safe}});
+l.push({{i.(h_point[17:-1])|safe}});
 l.push('house');
 l.push({{i.area|safe}});
 l.push({{i.income|safe}})
@@ -565,7 +565,7 @@ var well=[];
 <script>
 var l=[];
 l.push("{{i.id}}");
-l.push({{lat}});
+l.push({{i.h_point|safe}});
 l.push({{lon}});
 l.push('well');
 l.push({{i.depth|safe}});
