@@ -590,14 +590,7 @@ well.push(["1",51.508742,-0.120850,"well",50]);
           {lat: 32.321, lng: -64.757},
           {lat: 25.774, lng: -80.190}
         ];
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+
 function myMap() {
 var mapProp1= {
     center:new google.maps.LatLng(51.508742,-0.120850),
@@ -615,6 +608,14 @@ for (i = 0; i < well.length; i++) {
 }
 for (i = 0; i < farm1.length; i++) {
      addFarm(farm1[i]);
+}
+  function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 function addHouse(marker) {
     var category = marker[3];
