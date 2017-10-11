@@ -285,8 +285,9 @@
                   <h2>Project Title</h2>
                   <hr class="star-primary">
                   <div id="map1" style="width:100%;height:400px;"></div>
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                  <div id="myDIV">
+                  This is my DIV element.
+                 </div>
                   <ul class="list-inline item-details">
                     <li>Client:
                       <strong>
@@ -589,7 +590,14 @@ well.push(["1",51.508742,-0.120850,"well",50]);
           {lat: 32.321, lng: -64.757},
           {lat: 25.774, lng: -80.190}
         ];
-
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
 function myMap() {
 var mapProp1= {
     center:new google.maps.LatLng(51.508742,-0.120850),
@@ -623,10 +631,10 @@ function addHouse(marker) {
         icon:icon(income),
         map: map1
     });
-
           marker1.addListener('click', function() {
           map1.setZoom(8);
           map1.setCenter(marker1.getPosition());
+          myFunction();
         });
   function icon(income) {
     income=((income)/1000)+20;
@@ -673,7 +681,7 @@ function addWell(marker) {
 }
 function addFarm(marker){
         var bermudaTriangle = new google.maps.Polygon({
-          paths: farm1[0],
+          paths: marker,
           strokeColor: '#FF0000',
           strokeOpacity: 0.8,
           strokeWeight: 2,
