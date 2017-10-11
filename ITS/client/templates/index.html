@@ -568,8 +568,6 @@ well.push(l);
       <script>
         var farm=[];
 var temp=[]; 
-</script>
-<script>
 {% for l in farm.poly.coordinates.0 %}
  console.log(l);
                              temp.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
