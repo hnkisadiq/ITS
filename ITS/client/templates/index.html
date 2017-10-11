@@ -537,16 +537,15 @@
       </div>
       <script>
 var house=[];
+var temp=[];
 </script>
 {% for i in house %}
-
-
 <script>
-        { k=1 }
 var l=[];
 l.push({{i.id|safe}});
-l.push({{i.h_point|safe}});
-l.push({{k}});
+temp=({{i.h_point|safe}});
+l.push(temp.0);
+l.push();
 l.push('house');
 l.push({{i.area|safe}});
 l.push({{i.income|safe}})
