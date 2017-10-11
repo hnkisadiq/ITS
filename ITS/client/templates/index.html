@@ -539,11 +539,8 @@
 var house=[];
 </script>
 {% for i in house %}
-      { k=i.h_point }
-      { r=k[17:-1] }
-      { temp=r.split(' ') }
-      { lon=float(temp[0]) }
-      { lat=float(temp[1]) }
+      { k=1 }
+
 <script>
 var l=[];
 l.push({{i.id|safe}});
