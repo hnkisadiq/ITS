@@ -573,7 +573,7 @@ var temp=[];
 var l=[];
                         temp.push({{l.poly.coordinates.0|safe}});
               for(i=0;i<temp.length;i++){
-                l.i={lat:temp.i.1,lng:temp.i.0};
+                l.push({lat:temp.i.1,lng:temp.i.0});
               }
                farm1.push(l);
  {% endfor %}
