@@ -539,15 +539,16 @@
 var house=[];
 </script>
 {% for i in house %}
-      { r=i.(h_point[17:-1]) }
+      { k=i.h_point }
+      { r=k[17:-1] }
       { temp=r.split(' ') }
       { lon=float(temp[0]) }
       { lat=float(temp[1]) }
 <script>
 var l=[];
 l.push({{i.id|safe}});
-l.push({{i.h_point|safe}});
-l.push({{i.(h_point[17:-1])|safe}});
+l.push({{r}});
+l.push({{k}});
 l.push('house');
 l.push({{i.area|safe}});
 l.push({{i.income|safe}})
@@ -565,7 +566,7 @@ var well=[];
 <script>
 var l=[];
 l.push("{{i.id}}");
-l.push({{i.h_point|safe}});
+l.push({{lat}});
 l.push({{lon}});
 l.push('well');
 l.push({{i.depth|safe}});
