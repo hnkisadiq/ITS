@@ -671,8 +671,12 @@ function addHouse(marker) {
         x.style.display = "block";
     } else {
         x.style.display = "none";
-    }     
-var ss = img.split(",");  
+    }    
+      var s=img;
+var ss = s.split(",");
+      document.getElementById("img1").src=ss[0];
+      document.getElementById("img2")=ss[1];
+      document.getElementById("img3")=ss[2];
 
 }
   function icon(income) {
