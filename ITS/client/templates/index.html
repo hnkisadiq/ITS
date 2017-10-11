@@ -571,8 +571,9 @@ var temp=[];
 {% for l in farm.poly.coordinates.0 %}
                         console.log(l);
                         temp.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
+                         console.log(temp);
                        {% endfor %}
-                       console.log(temp);
+                       
                        
 farm1.push(temp);
 </script>
@@ -600,8 +601,8 @@ for (i = 0; i < house.length; i++) {
 for (i = 0; i < well.length; i++) {
      addWell(well[i]);
 }
-for (i = 0; i < farm.length; i++) {
-     addFarm(farm[i]);
+for (i = 0; i < farm1.length; i++) {
+     addFarm(farm1[i]);
 }
 function addHouse(marker) {
     var category = marker[3];
