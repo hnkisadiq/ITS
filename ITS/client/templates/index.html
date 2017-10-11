@@ -580,10 +580,7 @@ var farm=[];
       { lon=[] }
       { r=i.(poly[20:-2]) }
       { temp=r.split(',') }
-      {% for j in range(0,len(temp)) %}
-      { lon.append(float((temp[j].split(' '))[0])) }
-      { lat.append(float((temp[j].split(' '))[1])) }
-      {% endfor %}
+
 <script>
 var l=[];
 l.push("{{i.id}}");
