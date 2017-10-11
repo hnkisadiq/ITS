@@ -588,7 +588,7 @@ var farm=[];
 for (i = 0; i < temp.length; i++) {
   l=temp.i;
   for (i = 0; i < l.length; i++) {
-      k.push({lat:l.i.0, lng:l.i.1});
+      k.push({lat:(l.i.0), lng:(l.i.1)});
 }
   farm.push(k);
 }
@@ -691,7 +691,7 @@ function addFarm(marker){
         bermudaTriangle.setMap(map3);
 }
 }
-document.getElementById("info").innerHTML=farm;
+document.getElementById("info").innerHTML=farm[0];
 </script>
     <!-- Bootstrap core JavaScript -->
     <script async defer
