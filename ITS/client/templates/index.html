@@ -573,6 +573,8 @@ var temp=[];
 {% for l in farm.poly.coordinates.0 %}
                              temp.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
                        {% endfor %}
+                       console.log(temp);
+                       
 farm.push(temp);
 </script>
     </div>
