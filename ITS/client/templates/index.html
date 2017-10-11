@@ -545,7 +545,7 @@ var l=[];
 l.push({{i.id|safe}});
 temp=({{i.h_point|safe}});
 l.push(temp.0);
-l.push();
+l.push(temp.1);
 l.push('house');
 l.push({{i.area|safe}});
 l.push({{i.income|safe}})
@@ -697,7 +697,7 @@ function addFarm(marker){
         bermudaTriangle.setMap(map3);
 }
 }
-document.getElementById("info").innerHTML="house";
+document.getElementById("info").innerHTML=house;
 </script>
     <!-- Bootstrap core JavaScript -->
     <script async defer
