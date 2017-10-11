@@ -663,6 +663,7 @@ function addHouse(marker) {
           marker1.addListener('click', function() {
           map1.setZoom(8);
           map1.setCenter(marker1.getPosition());
+            document.getElementById("myDIV").innerHTML=img;
           myFunction(img);
         });
     function myFunction(img) {
@@ -672,7 +673,7 @@ function addHouse(marker) {
     } else {
         x.style.display = "none";
     }    
-      document.getElementById("myDIV").innerHTML=img;
+      //document.getElementById("myDIV").innerHTML=img;
       var s = img;
 var ss = s.split(",");
       document.getElementById("img1").src=ss[0];
