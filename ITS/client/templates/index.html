@@ -543,8 +543,8 @@ var temp=[];
 <script>
 var l=[];
 l.push({{i.id|safe}});
-l.push({{i.h_point.cooridinates.1|safe}});
-l.push({{i.h_point.cooridinates.0|safe}});
+l.push({{i.h_point.coordinates.1|safe}});
+l.push({{i.h_point.coordinates.0|safe}});
 l.push('house');
 l.push({{i.area|safe}});
 l.push({{i.income|safe}})
@@ -567,15 +567,12 @@ well.push(l);
 {% endfor %}
       <script>
 var farm=[];
+var temp=[]; 
 </script>
 {% for i in farm %}
 <script>
 var l=[];
-l.push("{{i.id}}");
-l.push({{lat}});
-l.push({{lon}});
-l.push('well');
-l.push({{i.depth|safe}});
+l.push({{i.poly.coordinates.0}});
 farm.push(l);
 </script>
 {% endfor %}
@@ -587,13 +584,12 @@ house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 well.push(["1",51.508742,-0.120850,"well",50]);
 
-farm = [[
-          {lat: 25.774, lng: -80.190},
-          {lat: 18.466, lng: -66.118},
-          {lat: 32.321, lng: -64.757},
-          {lat: 25.774, lng: -80.190}
-        ]];
-
+farm.push([
+          {25.774,-80.190},
+          {18.466,-66.118},
+          {32.321,-64.757},
+          {25.774,-80.190}
+        ]);
 function myMap() {
 var mapProp1= {
     center:new google.maps.LatLng(51.508742,-0.120850),
