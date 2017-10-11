@@ -539,7 +539,7 @@
 var house=[];
 </script>
 {% for i in house %}
-      {% r=i.(h_point[17:-1]) %}
+      {{ r=i.(h_point[17:-1]) }}
       {% temp=r.split(' ') %}
       {% lon=float(temp[0]) %}
       {% lat=float(temp[1]) %}
