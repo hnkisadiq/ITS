@@ -567,9 +567,10 @@ well.push(l);
 {% endfor %}
       <script>
 var farm1=[];
-var temp=[]; 
+var temp=[];
+
 {% for l in farm.poly.coordinates.0 %}
-                        console.log(l);
+                        console.log({{l}});
                         temp.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
                          console.log(temp);
                        {% endfor %}
@@ -679,7 +680,7 @@ function addFarm(marker){
         bermudaTriangle.setMap(map3);
 }
 }
-document.getElementById("info").innerHTML=farm;
+document.getElementById("info").innerHTML="k";
 </script>
     <!-- Bootstrap core JavaScript -->
     <script async defer
