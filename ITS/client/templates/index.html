@@ -672,7 +672,8 @@ function addHouse(marker) {
     } else {
         x.style.display = "none";
     }    
-      var s=img;
+      document.getElementById("myDIV").innerHTML=img;
+      var s = img;
 var ss = s.split(",");
       document.getElementById("img1").src=ss[0];
       document.getElementById("img2")=ss[1];
