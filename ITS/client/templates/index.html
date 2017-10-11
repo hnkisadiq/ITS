@@ -570,10 +570,14 @@ var farm1=[];
 var temp=[];
 
 {% for l in farm %}
+var l=[];
                         temp.push({{l.poly.coordinates.0|safe}});
+              for(i=0;i<temp.length;i++){
+                l.i={lat:temp.i.1,lng:temp.i.0};
+              }
+               farm1.push(l);
  {% endfor %}
- farm1.push(temp);
- document.getElementById("info").innerHTML=temp;
+ document.getElementById("info").innerHTML=farm1;
 </script>
     </div>
 <!-- Script -->
@@ -582,8 +586,6 @@ var temp=[];
 house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 well.push(["1",51.508742,-0.120850,"well",50]);
-
-
 function myMap() {
 var mapProp1= {
     center:new google.maps.LatLng(51.508742,-0.120850),
