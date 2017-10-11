@@ -566,15 +566,15 @@ well.push(l);
 </script>
 {% endfor %}
       <script>
-        var farm=[];
+var farm1=[];
 var temp=[]; 
 {% for l in farm.poly.coordinates.0 %}
- console.log(l);
-                             temp.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
+                        console.log(l);
+                        temp.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
                        {% endfor %}
                        console.log(temp);
                        
-farm.push(temp);
+farm1.push(temp);
 </script>
     </div>
 <!-- Script -->
