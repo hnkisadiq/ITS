@@ -541,12 +541,12 @@ var house=[];
 {% for i in house %}
 <script>
 var l=[];
-l.push("{{i.id}}");
-l.push({{i.lat}});
-l.push({{i.lon}});
+l.push("{{i.id|safe}}");
+l.push({{i.lat|safe}});
+l.push({{i.lon|safe}});
 l.push('house');
-l.push({{i.Area}});
-l.push({{i.Income}})
+l.push({{i.Area|safe}});
+l.push({{i.Income|safe}})
 house.push(l);
 </script>
 {% endfor %}
@@ -560,7 +560,7 @@ l.push("{{i.id}}");
 l.push({{i.lat}});
 l.push({{i.lon}});
 l.push('well');
-l.push({{i.depth}});
+l.push({{i.depth|safe}});
 well.push(l);
 </script>
 {% endfor %}
