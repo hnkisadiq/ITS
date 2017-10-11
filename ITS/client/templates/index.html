@@ -570,7 +570,7 @@ well.push(l);
 var temp=[]; 
 </script>
 <script>
-{% for l in farm.Poly.coordinates.0 %}
+{% for l in farm.poly.coordinates.0 %}
                              l.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
                        {% endfor %}
 farm.push(l);
