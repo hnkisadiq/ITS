@@ -290,15 +290,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8"><div class="w3-content w3-display-container">
-  <img class="mySlides" src="img_fjords.jpg" style="width:100%">
-  <img class="mySlides" src="img_lights.jpg" style="width:100%">
-  <img class="mySlides" src="img_mountains.jpg" style="width:100%">
-  <img class="mySlides" src="img_forest.jpg" style="width:100%">
+  <img id="img1" class="mySlides" src="img_fjords.jpg" style="width:100%">
+  <img id="img2" class="mySlides" src="img_lights.jpg" style="width:100%">
+  <img id="img3" class="mySlides" src="#" style="width:100%">
+  <img id="img4" class="mySlides" src="#" style="width:100%">
 
   <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 </div>
-
 <script>
 var slideIndex = 1;
 showDivs(slideIndex);
@@ -584,7 +583,8 @@ l.push({{i.h_point.coordinates.1|safe}});
 l.push({{i.h_point.coordinates.0|safe}});
 l.push('house');
 l.push({{i.area|safe}});
-l.push({{i.income|safe}})
+l.push({{i.income|safe}});
+  l.push({{i.img|safe}});
 house.push(l);
 </script>
 {% endfor %}
@@ -645,20 +645,23 @@ for (i = 0; i < well.length; i++) {
 for (i = 0; i < farm1.length; i++) {
      addFarm(farm1[i]);
 }
-  function myFunction() {
+  function myFunction(img) {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
     }
+     
+var ss = img.split(",");  
+
 }
 function addHouse(marker) {
     var category = marker[3];
     var title = marker[3];
     var income=marker[5];
     var area=marker[4];
-    //var img=marker[8];
+    var img=marker[6];
     var pos = new google.maps.LatLng(marker[1], marker[2]);
     //var content = marker[1];
   marker1 = new google.maps.Marker({
@@ -671,7 +674,7 @@ function addHouse(marker) {
           marker1.addListener('click', function() {
           map1.setZoom(8);
           map1.setCenter(marker1.getPosition());
-          myFunction();
+          myFunction(img);
         });
   function icon(income) {
     income=((income)/1000)+20;
