@@ -571,9 +571,9 @@ var temp=[];
 </script>
 <script>
 {% for l in farm.poly.coordinates.0 %}
-                             l.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
+                             temp.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
                        {% endfor %}
-farm.push(l);
+farm.push(temp);
 </script>
     </div>
 <!-- Script -->
