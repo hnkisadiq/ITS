@@ -566,15 +566,16 @@ well.push(l);
 </script>
 {% endfor %}
       <script>
+        var farm=[];
 var temp=[]; 
 </script>
-{% for i in farm %}
 <script>
-var l=[];
-l.push({{i.poly.coordinates.0}});
-temp.push(l);
+{% for l in farm.Poly.coordinates.0 %}
+                            var coordinates={{l|safe}};
+                             l.push({ lat: {{l.1|safe}}, lng: {{l.0|safe}} });
+                       {% endfor %}
+farm.push(l);
 </script>
-{% endfor %}
     </div>
 <!-- Script -->
 <script>
@@ -582,16 +583,7 @@ temp.push(l);
 house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 well.push(["1",51.508742,-0.120850,"well",50]);
-var farm=[];
- var k=[];
-  var l;
-for (i = 0; i < temp.length; i++) {
-  l=temp.i;
-  for (i = 0; i < l.length; i++) {
-      k.push({lat:(l.i.0), lng:(l.i.1)});
-}
-  farm.push(k);
-}
+
 farm.push([
 {lat: 25.774, lng: -80.190},
           {lat: 18.466, lng: -66.118},
