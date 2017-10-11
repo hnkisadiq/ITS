@@ -568,8 +568,9 @@ well.push(l);
       <script>
 var farm1=[];
 var temp=[];
-{% for l in farm.poly.coordinates.0 %}
-                        temp.push({{l.1|safe}});
+        document.write({{farm.poly.coordinates.0|safe}});
+{% for l in farm.poly.coordinates %}
+                        temp.push({{l|safe}});
  {% endfor %}
  document.getElementById("info").innerHTML=temp;
 </script>
