@@ -570,7 +570,7 @@ var farm1=[];
 var temp=[];
 
 {% for l in farm %}
-                        temp.push({{l|safe}});
+                        temp.push({{l.poly.coordinates.0|safe}});
  {% endfor %}
  document.getElementById("info").innerHTML=temp;
 </script>
