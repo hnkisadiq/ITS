@@ -571,9 +571,9 @@ var temp=[];
 
 {% for l in farm %}
 var l=[];
-                        temp.push({{l.poly.coordinates.0|safe}});
+                        temp.push({{l.poly.coordinates.0.0|safe}});
               for(i=0;i<temp.length;i++){
-                l.push({"lat":temp.i.1,"lng":temp.i.0});
+                l.push({lat:temp.i.1,lng:temp.i.0});
               }
                farm1.push(l);
  {% endfor %}
@@ -586,6 +586,13 @@ var l=[];
 house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 well.push(["1",51.508742,-0.120850,"well",50]);
+  var s = [
+          {lat: 25.774, lng: -80.190},
+          {lat: 18.466, lng: -66.118},
+          {lat: 32.321, lng: -64.757},
+          {lat: 25.774, lng: -80.190}
+        ];
+
 function myMap() {
 var mapProp1= {
     center:new google.maps.LatLng(51.508742,-0.120850),
@@ -669,7 +676,7 @@ function addWell(marker) {
 }
 function addFarm(marker){
         var bermudaTriangle = new google.maps.Polygon({
-          paths: marker,
+          paths: s,
           strokeColor: '#FF0000',
           strokeOpacity: 0.8,
           strokeWeight: 2,
