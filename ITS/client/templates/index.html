@@ -318,7 +318,15 @@ function showDivs(n) {
 </script></div>
   </div>
   <div class="row">
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <div class="alert alert-success">
+    <strong>Income</strong> 
+    <p id="inc"></p>
+  </div>
+  <div class="alert alert-info">
+    <strong>Area</strong>
+    <p id="ar"></p>
+  </div></div>
   </div>
 </div>
                  </div>
@@ -667,7 +675,7 @@ function addHouse(marker) {
             
           myFunction();
         });
-    function myFunction() {
+    function myFunction(income,area) {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -675,11 +683,12 @@ function addHouse(marker) {
         x.style.display = "none";
     }    
       //document.getElementById("myDIV").innerHTML=img;
-      var s = img;
-var ss = s.split(",");
-      document.getElementById("img1").src=ss[0];
-      document.getElementById("img2")=ss[1];
-      document.getElementById("img3")=ss[2];
+      
+//      var s = img;
+//var ss = s.split(",");
+   //   document.getElementById("img1").src=ss[0];
+      document.getElementById("inc")=income;
+      document.getElementById("ar")=area;
 
 }
   function icon(income) {
