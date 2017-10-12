@@ -672,6 +672,7 @@ function addHouse(marker) {
     });
           marker1.addListener('click', function() {
           map1.setZoom(8);   
+            map1.setCenter(marker1.getPosition());
           myFunction();
         });
     function myFunction() {
@@ -719,6 +720,7 @@ function addWell(marker) {
 
             marker1.addListener('click', function() {
           map2.setZoom(8);
+          map1.setCenter(marker1.getPosition());
           infowindow.open(map2, marker1);
         });
   function icon(depth) {
