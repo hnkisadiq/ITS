@@ -663,7 +663,7 @@ function addHouse(marker) {
     document.getElementById("info").innerHTML=imgk;
     var pos = new google.maps.LatLng(marker[1], marker[2]);
     //var content = marker[1];
-  marker1 = new google.maps.Marker({
+  var marker1 = new google.maps.Marker({
         title: title,
         position: pos,
         category: category,
@@ -706,7 +706,7 @@ function addWell(marker) {
     //var img=marker[8];
     var pos = new google.maps.LatLng(marker[1], marker[2]);
     //var content = marker[1];
-  marker1 = new google.maps.Marker({
+  var marker1 = new google.maps.Marker({
         title: title,
         position: pos,
         category: category,
