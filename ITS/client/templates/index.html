@@ -658,8 +658,6 @@ function addHouse(marker) {
     var income=marker[5];
     var area=marker[4];
     var imgk=marker[6];
-    document.getElementById("inc").innerHTML=income;
-    document.getElementById("ar").innerHTML=area;
     document.getElementById("info").innerHTML=imgk;
     var pos = new google.maps.LatLng(marker[1], marker[2]);
     //var content = marker[1];
@@ -673,14 +671,16 @@ function addHouse(marker) {
           marker1.addListener('click', function() {
           map1.setZoom(8);   
             map1.setCenter(marker1.getPosition());
-          myFunction();
+          myFunction(income,area);
         });
-    function myFunction() {
+    function myFunction(income,area) {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
+          document.getElementById("inc").innerHTML=income;
+    document.getElementById("ar").innerHTML=area;
     }    
       //document.getElementById("myDIV").innerHTML=img;
       
