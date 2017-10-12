@@ -743,13 +743,13 @@ function addFarm(marker){
           fillOpacity: 0.35
         });
         bermudaTriangle.setMap(map3);
-  var con="<iframe width='450px' height='450px' style='border:none;' src='pie.html'></iframe>";
+  var con="<iframe width='450px' height='450px' style='border:none;' src='pie.html.html'></iframe>";
   var infowindow = new google.maps.InfoWindow({
     content: con
   });
   google.maps.event.addListener(bermudaTriangle, 'click', function (event) {
         //alert the index of the polygon
-        infowindow.open(map2, bermudaTriangle);
+        infowindow.open(map3, bermudaTriangle);
     });
 }
 }
