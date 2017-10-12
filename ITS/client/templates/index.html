@@ -659,6 +659,8 @@ function addHouse(marker) {
     var income=marker[5];
     var area=marker[4];
     var imgk=marker[6];
+    document.getElementById("inc").innerHTML=income;
+    document.getElementById("ar").innerHTML=area;
     document.getElementById("info").innerHTML=imgk;
     var pos = new google.maps.LatLng(marker[1], marker[2]);
     //var content = marker[1];
@@ -675,7 +677,7 @@ function addHouse(marker) {
             
           myFunction();
         });
-    function myFunction(income,area) {
+    function myFunction() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -687,8 +689,6 @@ function addHouse(marker) {
 //      var s = img;
 //var ss = s.split(",");
    //   document.getElementById("img1").src=ss[0];
-      document.getElementById("inc").innerHTML=income;
-      document.getElementById("ar").innerHTML=area;
 
 }
   function icon(income) {
