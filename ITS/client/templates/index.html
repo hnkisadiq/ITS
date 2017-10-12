@@ -651,7 +651,7 @@ function addHouse(marker) {
     var income=marker[5];
     var area=marker[4];
     var imgk=marker[6];
-    document.getElementById("myDIV").innerHTML=imgk;
+    document.getElementById("info").innerHTML=imgk;
     var pos = new google.maps.LatLng(marker[1], marker[2]);
     //var content = marker[1];
   marker1 = new google.maps.Marker({
@@ -665,9 +665,9 @@ function addHouse(marker) {
           map1.setZoom(8);
           map1.setCenter(marker1.getPosition());
             
-          myFunction(img);
+          myFunction();
         });
-    function myFunction(img) {
+    function myFunction() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
         x.style.display = "block";
