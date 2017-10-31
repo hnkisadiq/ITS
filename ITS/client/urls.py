@@ -7,5 +7,6 @@ urlpatterns = [
  url(r'^data3/$', views.data3, name='data3'),
  url(r'^data2/$', views.data2, name='data2'),
 url(r'^test/$', views.test, name='test'),
+    url(r'^3d/$', views.3d, name='3d'),
 ]
 
