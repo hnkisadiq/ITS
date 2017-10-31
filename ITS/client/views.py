@@ -27,6 +27,10 @@ def data3(request):
     r = json.loads(response.read())
     return HttpResponse(r)
 
+def 3d(request):
+    depth = request.GET['k']
+    return render(request,'3d.html?k='+depth+'')
+
 def test(request):
     url1 = 'http://10.0.3.23:8076/farm/'
     url2 = 'http://10.0.3.23:8076/house/'
