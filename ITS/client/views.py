@@ -27,7 +27,7 @@ def data3(request):
     r = json.loads(response.read())
     return HttpResponse(r)
 
-def 3d(request):
+def well(request):
     depth = request.GET['k']
     return render(request,'3d.html?k='+depth+'')
 
