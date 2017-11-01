@@ -625,9 +625,10 @@ var l=[];
             var l = [];
             l.push({{l.name }});
             l.push({{l.output }});
-            crop[{{l.c_id}}].push(l);
+            crop.push(l);
             {% endfor %}
         </script>
+      {{crop}}
     </div>
 <!-- Script -->
 <script>
