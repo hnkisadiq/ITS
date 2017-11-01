@@ -527,8 +527,8 @@ var l=[];
         ];*/
 
     function myMap() {
-        var loc1 = new google.maps.LatLng(13.610041, 80.050782);
-        //var loc1 = new google.maps.LatLng(-33.8665433, 151.1956316);
+        var loc = new google.maps.LatLng(13.610041, 80.050782);
+        var loc1 = new google.maps.LatLng(-33.8665433, 151.1956316);
 /*if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             loc1 = {
@@ -536,7 +536,7 @@ var l=[];
               lng: position.coords.longitude
             };*/
 var mapProp1= {
-    center:loc1,
+    center:loc,
     zoom:15,
     mapTypeId: 'satellite'
 };
