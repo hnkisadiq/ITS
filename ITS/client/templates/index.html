@@ -538,6 +538,7 @@ audio=document.getElementById("clip");
 	function mouseLeave() {
     audio=document.getElementById("clip");
   audio.pause();
+		audio.currentTime=0;
 	}
     function myMap() {
         var loc = new google.maps.LatLng(13.610041, 80.050782);
