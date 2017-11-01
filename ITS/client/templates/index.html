@@ -689,13 +689,13 @@ for (i = 0; i < farm1.length; i++) {
       function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
-          map: map,
+          map: map4,
           position: place.geometry.location
         });
 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.setContent(place.name);
-          infowindow.open(map, this);
+          infowindow.open(map4, this);
         });
       }
 function addHouse(marker) {
