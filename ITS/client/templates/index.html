@@ -625,7 +625,7 @@ var l=[];
             var l = [];
             l.push({{x.name }});
             //l.push({{x.output }});
-            crop.push(l);
+            crop.push({{x.name }});
             {% endfor %}
         </script>
     </div>
@@ -669,7 +669,7 @@ for (i = 0; i < well.length; i++) {
 for (i = 0; i < farm1.length; i++) {
   var tempo=[];
   tempo.push(farm1[i]);
-  tempo.push(crop[i][0]);
+  tempo.push(crop[i]);
      addFarm(tempo);
 }
       //hospitals
