@@ -18,7 +18,7 @@ def test(request):
     url1 = 'http://10.0.3.23:8076/farm/'
     url2 = 'http://10.0.3.23:8076/house/'
     url3 = 'http://10.0.3.23:8076/well/'
-    url4 = 'http://10.0.3.23:8076/well/'
+    url4 = 'http://10.0.3.23:8076/crop/'
     response1 = urllib.urlopen(url1)
     response2 = urllib.urlopen(url2)
     response3 = urllib.urlopen(url3)
