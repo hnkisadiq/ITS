@@ -10,7 +10,6 @@
 
 <body>
 <div class="chart-container" style="position: relative; height:40vh; width:80vw"align="center">
-      <p id="koushik">koushik</p>
 <canvas id="pie-chart" width="800" height="450"></canvas>
 
     <script type="text/javascript">
@@ -24,7 +23,6 @@
             return (false);
         }
         var x = getQueryVariable("k");
-        document.getElementById("koushik").innerHTML=x;
               var comma = x.split(",");
         var lab1 = [];
         var lab2 = [];
@@ -51,7 +49,7 @@ var myPieChart = new Chart(document.getElementById("pie-chart"), {
     options: {
       title: {
         display: true,
-        text: 'Predicted yield'
+        text: 'Current yield'
       }
     }
 });
