@@ -624,10 +624,10 @@ var l=[];
             var farm = [];
             var l = [];
             {% for l in crop %}
-            l.push({{crop_id }});
-            l.push({{name }});
-            l.push({{output }});
-            farm[{{farm_id }}].push(l);
+            l.push({{l.crop_id }});
+            l.push({{l.name }});
+            l.push({{l.output }});
+            farm[{{l.farmid }}].push(l);
             {% enfor %}
         </script>
     </div>
