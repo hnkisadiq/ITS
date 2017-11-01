@@ -28,10 +28,11 @@
               var comma = x.split(",");
         var lab1 = [];
         var lab2 = [];
-        var tempo=[];
+        //var tempo=[];
         for (i = 0; i < comma.length; i++) {
+          var tempo=[];
             tempo = comma[i].split("_")
-            lab1.push(tempo[0]);
+            lab1.push(String(tempo[0]));
             lab2.push(parseint(tempo[1]));
         }
         </script>
