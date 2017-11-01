@@ -623,9 +623,9 @@ var l=[];
             var crop = [];
             {% for x in crop %}
             var l = [];
-            l.push({{x.name }});
+            l.push("{{x.name }}");
             //l.push({{x.output }});
-            crop.push({{x.name }});
+            crop.push(l);
             {% endfor %}
         </script>
     </div>
