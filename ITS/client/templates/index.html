@@ -530,10 +530,14 @@ var l=[];
           {lat: 32.321, lng: -64.757},
           {lat: 25.774, lng: -80.190}
         ];*/
+	var  audio;
 	function mouseEnter(){
-var audio=document.getElementById("clip");
+audio=document.getElementById("clip");
   audio.play();
 	}
+	function mouseLeave() {
+    audio=document.getElementById("clip");
+  audio.pause();
     function myMap() {
         var loc = new google.maps.LatLng(13.610041, 80.050782);
         var loc1 = new google.maps.LatLng(-33.8665433, 151.1956316);
