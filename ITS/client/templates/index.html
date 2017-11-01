@@ -685,7 +685,7 @@ for (i = 0; i < farm1.length; i++) {
             }
         }
     }
-      
+      var infowin = new google.maps.InfoWindow();
       function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
@@ -694,8 +694,8 @@ for (i = 0; i < farm1.length; i++) {
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
+          infowin.setContent(place.name);
+          infowin.open(map, this);
         });
       }
 function addHouse(marker) {
