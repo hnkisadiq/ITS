@@ -25,7 +25,7 @@
 
   <body id="page-top">
 <audio id="clip">
-	<source src="/static/SampleAudio_0.7mb.mp3"></source>
+	<source src="/static/SampleAudio_0.4mb.mp3"></source>
 </audio>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -60,9 +60,10 @@
           <hr class="star-light">
           <span class="skills">Farmer-Koushik</span>
         </div>
+	      <i class="fa fa-microphone fa-3x" aria-hidden="true" id="audio1" onmouseenter="mouseEnter()"></i>
       </div>
     </header>
-<i class="fa fa-microphone" aria-hidden="true" id="audio1"></i>
+
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
       <div class="container">
@@ -133,7 +134,7 @@
       </div>
     </section>
 <br>
-    <i class="fa fa-microphone" aria-hidden="true" id="audio2"></i>
+    <i class="fa fa-microphone fa-3x" aria-hidden="true" id="audio2" onmouseenter="mouseEnter()"></i>
     <!-- About Section -->
     <section class="success" id="about">
       <div class="container">
@@ -153,7 +154,7 @@
       </div>
     </section>
 <br>
-    <i class="fa fa-microphone" aria-hidden="true" id="audio3"></i>
+    <i class="fa fa-microphone fa-3x" aria-hidden="true" id="audio3" onmouseenter="mouseEnter()"></i>
     <!-- Contact Section -->
     <section id="contact">
       <div class="container">
@@ -529,8 +530,10 @@ var l=[];
           {lat: 32.321, lng: -64.757},
           {lat: 25.774, lng: -80.190}
         ];*/
+	function mouseEnter(){
 var audio=document.getElementById("clip");
   audio.play();
+	}
     function myMap() {
         var loc = new google.maps.LatLng(13.610041, 80.050782);
         var loc1 = new google.maps.LatLng(-33.8665433, 151.1956316);
