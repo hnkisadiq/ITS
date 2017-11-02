@@ -572,11 +572,13 @@ var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
+	    infoW.setContent("Your Location");
             infoW.setPosition(pos);
             infoW.setContent('Location found.');
             infoW.open(map1);
             map1.setCenter(pos);
+		  map2.setCenter(pos);
+		  map2.setCenter(pos);
           }, function() {
             handleLocationError(true, infoW, map1.getCenter());
           });
@@ -616,6 +618,7 @@ for (i = 0; i < crop.length; i++) {
         }
     }
       var infowin = new google.maps.InfoWindow();
+	    
       function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
