@@ -9,7 +9,14 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'saiakhilesh.a15@iiits.in'
+EMAIL_HOST_PASSWORD = 'vandematarama'
+EMAIL_PORT = 587
 
+TWILIO_ACCOUNT_SID = 'AC192abda9f903457d965660e194d06440'
+TWILIO_AUTH_TOKEN = '2fdc4f7ce4624083845b6a2660fe80d4'
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
