@@ -29,3 +29,33 @@ def test(request):
     js_data4 = json.loads(response4.read())
     return render(request,'index.html', {"farm": js_data1,"house": js_data2,"well":js_data3,"crop":js_data4})
 
+def fmail(request):
+    if request.method == 'POST':
+        to_email = request.POST.get['email_id']
+        phn_num = request.POST.get['phn_num']
+        message = request.POST.get['message']
+        subject = "ITS Project"
+        from_email = settings.EMAIL_HOST_USER
+
+        try:
+
+            send_mail(subject, message, from_email, ['sunnya40@gmail.com'], fail_silently=False, auth_user=None,
+                      auth_password=None, connection=None, html_message=None)
+
+            account_sid = "AC192abda9f903457d965660e194d06440"
+            auth_token = "2fdc4f7ce4624083845b6a2660fe80d4"
+
+            client = Client(account_sid, auth_token)
+
+            message = client.messages.create(
+                to="+918897987886",
+                from_="+12345426740",
+                body=message)
+
+            print(message.sid)
+
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        return redirect('thanks')
+    return render(request, "email.html")
+
