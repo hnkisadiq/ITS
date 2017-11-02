@@ -26,7 +26,7 @@ from twilio.rest import TwilioRestClient
 
 from twilio.rest import Client
 from django.views.decorators.csrf import csrf_exempt
-@csrf_exempt
+
 
 def well(request):
     depth = request.GET['k']
