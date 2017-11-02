@@ -75,7 +75,7 @@ def fmail(request):
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return redirect('thanks')
-    return render(request, "email.html")
+    return render(request, "index.html")
 
 def thanks(request):
     return HttpResponse('Thank you for your message.')
