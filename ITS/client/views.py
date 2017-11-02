@@ -9,6 +9,24 @@ import json
 import urllib
 #from django.utils import simplejson
 # Create your views here.
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+#from emails.forms import ContactForm
+from twilio.rest import Client
+from django.conf import settings
+
+import twilio
+import twilio.rest
+
+from twilio.rest import TwilioRestClient
+from django.conf import settings
+
+from twilio.rest import TwilioRestClient
+
+from twilio.rest import Client
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
 
 def well(request):
     depth = request.GET['k']
@@ -59,3 +77,5 @@ def fmail(request):
         return redirect('thanks')
     return render(request, "email.html")
 
+def thanks(request):
+    return HttpResponse('Thank you for your message.')
