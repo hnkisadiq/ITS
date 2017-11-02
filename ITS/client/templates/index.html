@@ -548,6 +548,7 @@ var l=[];
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };*/
+	    
 var mapProp1= {
     center:loc,
     zoom:15,
@@ -557,11 +558,33 @@ var mapProp1= {
         center: loc1,
         zoom: 15,
     };
+	    var infoW = new google.maps.InfoWindow;
+
 var map1=new google.maps.Map(document.getElementById("map1"),mapProp1);
 var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
     var map3 = new google.maps.Map(document.getElementById("map3"), mapProp1);
     var map4 = new google.maps.Map(document.getElementById("map4"), mapProp2);
     var map5 = new google.maps.Map(document.getElementById("map5"), mapProp2);
+	    //current location
+	            if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoW.setPosition(pos);
+            infoW.setContent('Location found.');
+            infoW.open(map1);
+            map1.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoW, map1.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoW, map1.getCenter());
+        }
+	    //end
 for (i = 0; i < house.length; i++) {
         addHouse(house[i]);
     }
