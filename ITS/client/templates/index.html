@@ -815,16 +815,16 @@ google.charts.setOnLoadCallback(drawChart);
 		      }
 		      document.getElementById("spam").innerHTML=row1[1];
 		      var opt = {
+			      title:"Yearly Crop Yields of each Farm",
       width: 400,
       height: 240,
-      vAxis: {title: "Cups"},
+      vAxis: {title: "Quintals"},
       hAxis: {title: "Month"},
       seriesType: "bars",
-      series: {5: {type: "line"}},
+      series: {crop.length: {type: "line"}},
       animation:{
         duration: 1000,
         easing: 'out',
-	      "startup": true
       },
     };
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
