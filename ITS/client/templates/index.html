@@ -807,6 +807,23 @@ function addFarm(marker){
 			      row1.push(data);
 		      }
 		      document.getElementById("spam").innerHTML=row1[1];
+		      var opt = {
+      width: 400,
+      height: 240,
+      vAxis: {title: "Cups"},
+      hAxis: {title: "Month"},
+      seriesType: "bars",
+      series: {5: {type: "line"}},
+      animation:{
+        duration: 1000,
+        easing: 'out'
+      },
+    };
+		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
+chart.draw(google.visualization.arrayToDataTable(row1);
+, options);
+
+
 		      </script>
 	      <!-- Analytics end-->
     <!-- Bootstrap core JavaScript -->
