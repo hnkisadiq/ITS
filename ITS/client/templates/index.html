@@ -821,12 +821,14 @@ google.charts.setOnLoadCallback(drawChart);
       vAxis: {title: "Quintals"},
       hAxis: {title: "Month"},
       seriesType: "bars",
-      series: {crop.length: {type: "line"}},
+     // series: {crop.length: {type: "line"}},
       animation:{
         duration: 1000,
         easing: 'out',
       },
     };
+			     var hola=opt["series"];
+			      hola[parseInt(crop.length)]= {type: "line"};
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
 chart.draw(kk, opt);
