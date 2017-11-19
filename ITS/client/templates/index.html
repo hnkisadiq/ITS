@@ -781,7 +781,8 @@ function addFarm(marker){
 </script>
 	      <!-- Analytics start-->
 	      <script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+		      function drawChart(){
 	    		      var row1=[];
 		      var count=0;
 		      var avg=0;
@@ -828,6 +829,7 @@ google.charts.load('current', {'packages':['corechart']});
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
 chart.draw(kk, options);
+		      }
 	      </script>
 	      <!-- Analytics end-->
     <!-- Bootstrap core JavaScript -->
