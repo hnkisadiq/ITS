@@ -515,7 +515,7 @@ var l=[];
             {% for x in crop %}
             var l = [];
 	     {{x}}
-            l.push("{{x.name}}");
+            l.push("{{x.name|safe}}");
             //l.push({{x.output }});
             crop.push(l);
             {% endfor %}
