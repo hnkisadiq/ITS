@@ -544,6 +544,54 @@ document.getElementById("spam").innerHTML=crop[0][0];
 		audio.currentTime=0;
 	}
     function myMap() {
+	    //visual1-start
+	    		      var row1=[];
+		      var count=0;
+		      var avg=0;
+		      row1[0]=[];
+		      row1[0][0]="Month";
+		      for(k=1;k<=crop.length;k++){
+			     row1[0].push("farm"+String(k)); 
+		      }
+		      row1[0].push("Average");
+		      for(k=2014;k<2018;k++){
+		      var data=[];
+			      count=0;
+			      avg=0;
+			      data.push(String(k));
+		      for(i=0;i<crop.length;i++){
+		      var comma = crop[i][0].split(",");
+        for (j = 0; j < comma.length; j++) {
+          var tempo=[];
+            tempo = comma[j].split("_")
+		if(String(tempo[0])=="rice"){
+		data.push(parseInt(tempo[1]));
+			avg+=parseInt(tempo[1]);
+		}
+        }    
+			      count++;
+		      }
+			      data.push(parseFloat(avg/count));
+			      row1.push(data);
+		      }
+		      document.getElementById("spam").innerHTML=row1[1];
+		      var opt = {
+      width: 400,
+      height: 240,
+      vAxis: {title: "Cups"},
+      hAxis: {title: "Month"},
+      seriesType: "bars",
+      series: {5: {type: "line"}},
+      animation:{
+        duration: 1000,
+        easing: 'out',
+	      "startup": true
+      },
+    };
+		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
+		      var kk=google.visualization.arrayToDataTable(row1);
+chart.draw(kk, options);
+	    //visual1-end
         var loc = new google.maps.LatLng(13.610041, 80.050782);
         var loc1 = new google.maps.LatLng(-33.8665433, 151.1956316);
 /*if (navigator.geolocation) {
@@ -746,6 +794,7 @@ function addWell(marker) {
 }
 }
 }
+	    
 function addFarm(marker){
         var bermudaTriangle = new google.maps.Polygon({
           paths: marker[0],
@@ -776,56 +825,7 @@ function addFarm(marker){
       }
 </script>
 	      <!-- Analytics start-->
-	      <script src="https://maps.googleapis.com/maps/api/js">
-		      var row1=[];
-		      var count=0;
-		      var avg=0;
-		      row1[0]=[];
-		      row1[0][0]="Month";
-		      for(k=1;k<=crop.length;k++){
-			     row1[0].push("farm"+String(k)); 
-		      }
-		      row1[0].push("Average");
-		      for(k=2014;k<2018;k++){
-		      var data=[];
-			      count=0;
-			      avg=0;
-			      data.push(String(k));
-		      for(i=0;i<crop.length;i++){
-		      var comma = crop[i][0].split(",");
-        for (j = 0; j < comma.length; j++) {
-          var tempo=[];
-            tempo = comma[j].split("_")
-		if(String(tempo[0])=="rice"){
-		data.push(parseInt(tempo[1]));
-			avg+=parseInt(tempo[1]);
-		}
-        }    
-			      count++;
-		      }
-			      data.push(parseFloat(avg/count));
-			      row1.push(data);
-		      }
-		      document.getElementById("spam").innerHTML=row1[1];
-		      var opt = {
-      width: 400,
-      height: 240,
-      vAxis: {title: "Cups"},
-      hAxis: {title: "Month"},
-      seriesType: "bars",
-      series: {5: {type: "line"}},
-      animation:{
-        duration: 1000,
-        easing: 'out',
-	      "startup": true
-      },
-    };
-		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
-		      var kk=google.visualization.arrayToDataTable(row1);
-chart.draw(kk, options);
 
-
-		      </script>
 	      <!-- Analytics end-->
     <!-- Bootstrap core JavaScript -->
     <script async defer
