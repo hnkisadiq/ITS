@@ -816,11 +816,13 @@ function addFarm(marker){
       series: {5: {type: "line"}},
       animation:{
         duration: 1000,
-        easing: 'out'
+        easing: 'out',
+	      "startup": true
       },
     };
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
-chart.draw(google.visualization.arrayToDataTable(row1), options);
+		      var kk=google.visualization.arrayToDataTable(row1);
+chart.draw(kk, options);
 
 
 		      </script>
