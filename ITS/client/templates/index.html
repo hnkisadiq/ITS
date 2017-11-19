@@ -778,6 +778,8 @@ function addFarm(marker){
 	      <!-- Analytics start-->
 	      <script>
 		      var row1=[];
+		      var count=0;
+		      var avg=0;
 		      row1[0]=[];
 		      row1[0][0]="Month";
 		      for(k=1;k<=crop.length;k++){
@@ -786,6 +788,8 @@ function addFarm(marker){
 		      row1[0].push("Average");
 		      for(k=2014;k<2018;k++){
 		      var data=[];
+			      count=0;
+			      avg=0;
 			      data.push(String(k));
 		      for(i=0;i<crop.length;i++){
 		      var comma = crop[i][0].split(",");
@@ -794,9 +798,12 @@ function addFarm(marker){
             tempo = comma[j].split("_")
 		if(String(tempo[0])=="rice"){
 		data.push(parseInt(tempo[1]));
+			avg+=parseInt(tempo[1]);
 		}
-        }
+        }    
+			      count++;
 		      }
+			      data.push(parseFloat(avg/count));
 			      row1.push(data);
 		      }
 		      document.getElementById("spam").innerHTML=row1[1];
