@@ -778,8 +778,27 @@ function addFarm(marker){
 	      <!-- Analytics start-->
 	      <script>
 		      var row1=[];
+		      row1[0]=[];
+		      row1[0][0]="Month";
+		      for(k=1;k<=crop.length;k++){
+			     row1[0].push("farm"+String(k)); 
+		      }
+		      row1[0].push("Average");
+		      for(k=2014;k<2018;k++){
 		      var data=[];
-		      
+			      data.push(String(k));
+		      for(i=0;i<crop.length;i++){
+		      var comma = crop[i].split(",");
+        for (j = 0; j < comma.length; j++) {
+          var tempo=[];
+            tempo = comma[j].split("_")
+		if(String(tempo[0])=="rice"){
+		data.push(parseInt(tempo[1]));
+		}
+        }
+		      }
+			      row1.push(data);
+		      }
 		      </script>
 	      <!-- Analytics end-->
     <!-- Bootstrap core JavaScript -->
