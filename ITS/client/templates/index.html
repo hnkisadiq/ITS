@@ -816,34 +816,7 @@ google.charts.setOnLoadCallback(drawChart);
 			      row1.push(data);
 		      }
 			      //rice-end
-			      //wheat start
-			      row2[0]=[];
-		      row2[0][0]="Month";
-		      for(k=1;k<=crop.length;k++){
-			     row2[0].push("farm"+String(k)); 
-		      }
-		      row2[0].push("Average");
-		      for(k=2014;k<2018;k++){
-		      var data=[];
-			      count=0;
-			      avg=0;
-			      data.push(String(k));
-		      for(i=0;i<crop.length;i++){
-		      var comma = crop[i][0].split(",");
-        for (j = 0; j < comma.length; j++) {
-          var tempo=[];
-            tempo = comma[j].split("_")
-		if(String(tempo[0])=="wheat"){
-		data.push(parseInt(tempo[1]));
-			avg+=parseInt(tempo[1]);
-		}
-        }    
-			      count++;
-		      }
-			      data.push(parseFloat(avg/count));
-			      row2.push(data);
-		      }
-			      //wheat end
+			      
 		      document.getElementById("spam").innerHTML=row1;
 			      //var lenn=crop.length;
 		      var opt = {
@@ -863,11 +836,8 @@ google.charts.setOnLoadCallback(drawChart);
 			      //hola[parseInt(crop.length)]= {type: "line"};
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
-			      var kk1=google.visualization.arrayToDataTable(row2);
+			      //var kk1=google.visualization.arrayToDataTable(row2);
 chart.draw(kk, opt);
-			      function wheat(){
-			      chart.draw(kk1,opt);
-			      }
 		      }
 	      </script>
 	      <!-- Analytics end-->
