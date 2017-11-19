@@ -813,7 +813,8 @@ google.charts.setOnLoadCallback(drawChart);
 			      data.push(parseFloat(avg/count));
 			      row1.push(data);
 		      }
-		      document.getElementById("spam").innerHTML=row1[1];
+		      document.getElementById("spam").innerHTML=row1;
+			      var lenn=crop.length;
 		      var opt = {
 			      title:"Yearly Crop Yields of each Farm",
       width: 400,
@@ -821,7 +822,7 @@ google.charts.setOnLoadCallback(drawChart);
       vAxis: {title: "Quintals"},
       hAxis: {title: "Month"},
       seriesType: "bars",
-      series: {parseInt(crop.length): {type: "line"}},
+      series: {lenn: {type: "line"}},
       animation:{
         duration: 1000,
         easing: 'out',
