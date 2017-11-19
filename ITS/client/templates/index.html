@@ -788,7 +788,7 @@ function addFarm(marker){
 		      var data=[];
 			      data.push(String(k));
 		      for(i=0;i<crop.length;i++){
-		      var comma = crop[i].split(",");
+		      var comma = crop[i][0].split(",");
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
@@ -799,6 +799,7 @@ function addFarm(marker){
 		      }
 			      row1.push(data);
 		      }
+		      document.getElementById("spam").innerHTML=row1;
 		      </script>
 	      <!-- Analytics end-->
     <!-- Bootstrap core JavaScript -->
