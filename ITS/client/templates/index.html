@@ -829,8 +829,8 @@ google.charts.setOnLoadCallback(drawChart);
 			    //wheat start
 			            var row2=[];
 			      //var row2=[];
-		      var count=0;
-		      var avg=0;
+		      count=0;
+		      avg=0;
 			      		      row2[0]=[];
 		      row2[0][0]="Month";
 		      for(k=1;k<=crop.length;k++){
@@ -838,7 +838,7 @@ google.charts.setOnLoadCallback(drawChart);
 		      }
 		      row2[0].push("Average");
 		      for(k=2014;k<2018;k++){
-		      var data=[];
+		      data=[];
 			      count=0;
 			      avg=0;
 			      data.push(String(k));
@@ -884,7 +884,7 @@ google.charts.setOnLoadCallback(drawChart);
 			      //hola[parseInt(crop.length)]= {type: "line"};
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
-			      var kk1=google.visualization.arrayToDataTable(row2);
+			      //var kk1=google.visualization.arrayToDataTable(row2);
 chart.draw(kk, opt);
 		      }
 	      </script>
