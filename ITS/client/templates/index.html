@@ -523,17 +523,17 @@ var l=[];
 	    var ttr=[]
             l.push("{{x.name|safe}}");
 	     gh.push("{{x.year|safe}}");
-	     //ttr.push("{{x.C_id|safe}}")
+	     ttr.push("{{x.C_id|safe}}")
             //l.push({{x.output }});
             crop.push(l);
 	     year.push(gh);
-	     //farm_id.push(ttr)
+	     farm_id.push(ttr)
             {% endfor %}
         </script>
     </div>
 <!-- Script -->
 <script>
-//document.getElementById("spam").innerHTML=crop[0][0];
+document.getElementById("spam").innerHTML=farm_id;
 //house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 //well.push(["1",51.508742,-0.120850,"well",50]);
@@ -868,7 +868,7 @@ google.charts.setOnLoadCallback(drawChart);
 			      row2.push(data);
 		      }
 			      //wheat end
-		      document.getElementById("spam").innerHTML=row2;
+		      //document.getElementById("spam").innerHTML=row2;
 			      //var lenn=crop.length;
 		      var opt = {
 			      title:"Yearly Crop Yields of each Farm",
