@@ -552,8 +552,7 @@ document.getElementById("spam").innerHTML=farm_id;
   audio.pause();
 		audio.currentTime=0;
 	}
-	var map4;
-	var map5;
+	
     function myMap() {
 	    //visual1-start
 
@@ -582,8 +581,8 @@ var mapProp1= {
 var map1=new google.maps.Map(document.getElementById("map1"),mapProp1);
 var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
     var map3 = new google.maps.Map(document.getElementById("map3"), mapProp1);
-    map4 = new google.maps.Map(document.getElementById("map4"), mapProp2);
-    map5 = new google.maps.Map(document.getElementById("map5"), mapProp2);
+    //var map4 = new google.maps.Map(document.getElementById("map4"), mapProp2);
+     //var map5 = new google.maps.Map(document.getElementById("map5"), mapProp2);
 	    //current location
 	            if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -620,10 +619,45 @@ for (i = 0; i < crop.length; i++) {
      addFarm(tempo);
 }
 	    //sd
-	            
+	                  var pyrmont = {lat: -33.867, lng: 151.195};
+
+        var map = new google.maps.Map(document.getElementById('map4'), {
+          center: pyrmont,
+          zoom: 15
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['store']
+        }, callback);
+      
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }  
 	    //sd
       //hospitals
-    var request = {
+    /*var request = {
         location: loc1,
         radius: '500',
         type: ['restaurant']
@@ -682,7 +716,7 @@ for (i = 0; i < crop.length; i++) {
           infowin1.setContent(place.name);
           infowin1.open(map5, this);
         });
-      }
+      }*/
       //bus_stations
 function addHouse(marker) {
     var category = marker[3];
