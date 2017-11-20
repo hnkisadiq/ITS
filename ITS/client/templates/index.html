@@ -533,7 +533,7 @@ var l=[];
     </div>
 <!-- Script -->
 <script>
-document.getElementById("spam").innerHTML=farm_id;
+//document.getElementById("spam").innerHTML=farm_id;
 //house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 //well.push(["1",51.508742,-0.120850,"well",50]);
@@ -616,6 +616,8 @@ for (i = 0; i < crop.length; i++) {
   tempo.push(crop[i][0]);
      addFarm(tempo);
 }
+	    var infowin = new google.maps.InfoWindow();
+	    var infowin1 = new google.maps.InfoWindow();
       //hospitals
     var request = {
         location: loc1,
@@ -625,30 +627,9 @@ for (i = 0; i < crop.length; i++) {
 
     service = new google.maps.places.PlacesService(map4);
     service.nearbySearch(request, callback);
-    function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                var place = results[i];
-                createMarker(results[i]);
-            }
-        }
-    }
-      var infowin = new google.maps.InfoWindow();
-	    
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map4,
-          position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowin.setContent(place.name);
-          infowin.open(map4, this);
-        });
-      }
+    
       //banks
-      var request1 = {
+  /*    var request1 = {
         location: loc1,
         radius: '500',
         type: ['bank']
@@ -664,7 +645,7 @@ for (i = 0; i < crop.length; i++) {
             }
         }
     }
-      var infowin1 = new google.maps.InfoWindow();
+      
       function createMarker1(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
@@ -676,8 +657,10 @@ for (i = 0; i < crop.length; i++) {
           infowin1.setContent(place.name);
           infowin1.open(map5, this);
         });
-      }
+      }*/
       //bus_stations
+	    
+//bus end
 function addHouse(marker) {
     var category = marker[3];
     var title = marker[3];
@@ -788,6 +771,30 @@ function addFarm(marker){
         infoWindow.open(map1);
       }
 </script>
+	      <script>
+		      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                createMarker(results[i]);
+            }
+        }
+    }
+      
+	    
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map4,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowin.setContent(place.name);
+          infowin.open(map4, this);
+        });
+      }
+	      </script>
 	      <!-- Analytics start-->
 	      <script type="text/javascript">
 		      google.charts.load('current', {packages: ['corechart']});
@@ -807,7 +814,7 @@ google.charts.setOnLoadCallback(drawChart);
 			       var id_c=1;
 		      for(k=1;k<=f_len;k++){
 			      
-			     row1[0].push("Farm"+f_len); 
+			     row1[0].push("Farm"+k); 
 		      }
 		      row1[0].push("Average");
 		      for(k=2014;k<2018;k++){
