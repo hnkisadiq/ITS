@@ -59,7 +59,7 @@
           <span class="name">Profile</span>
           <hr class="star-light">
           <span class="skills">Farmer-Koushik</span>
-		<span id="spam"><span>
+		<span id="spam"></span>
         </div>
 	      <i class="fa fa-microphone fa-3x" aria-hidden="true" id="audio1" onmouseenter="mouseEnter()"></i>
       </div>
@@ -186,7 +186,7 @@
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Phone Number</label>
-                  <input class="form-control" id="phone" name= "phn_num"type="tel" placeholder="Phone Number" required data-validation-required-message="Please enter your phone number.">
+                  <input class="form-control" id="phone" name= "phn_num" type="tel" placeholder="Phone Number" required data-validation-required-message="Please enter your phone number.">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -797,19 +797,22 @@ google.charts.setOnLoadCallback(drawChart);
 			      //var row2=[];
 		      var count=0;
 		      var avg=0;
-			      var f_len=0;
+			      //var f_len=0;
+			      row1[0]=[];
+		      row1[0][0]="Month";
 			      {% for term in farm %}
-			      f_len+=1;
+			     // f_len+=1;
+			       row1[0].push(term.id);
 			      {% endfor %}
 			      //rice start	
-		      row1[0]=[];
-		      row1[0][0]="Month";
-			       var id_c=1;
-		      for(k=1;k<=farm_id.length;k++){
+		      
+			       
+		      //for(k=1;k<=farm_id.length;k++){
 			      
-			     row1[0].push(farm_id[k-1]); 
-		      }
+			      
+		      //}
 		      row1[0].push("Average");
+			       var id_c=1;
 		      for(k=2014;k<2018;k++){
 		      var data=[];
 			      count=0;
@@ -820,11 +823,12 @@ google.charts.setOnLoadCallback(drawChart);
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
-		if(id_c==parseInt(farm_id[i])){
+		if(row[0][id_c]==parseInt(farm_id[i])){
 		if(String(tempo[0])=="rice"){
 			if(year[i]==String(k)){
 		data.push(parseInt(tempo[1]));
 			avg+=parseInt(tempo[1]);
+				id_c++;
 		}
 
 		}
@@ -834,7 +838,7 @@ google.charts.setOnLoadCallback(drawChart);
 		      }
 			      data.push(parseFloat(avg/count));
 			      row1.push(data);
-			      id_c++;
+			      
 		      }
 			      //rice-end
 			    //wheat start
