@@ -151,6 +151,7 @@
 		                <div class="col-md-4 ml-auto" id="visual1">
 					<button class="btn btn-primary" id="rice">Rice</button>
 		  <button class="btn btn-primary" id="corn">Corn</button>
+					<button class="btn btn-primary" id="maize">Corn</button>
           </div>
 		      
 	      </div>
@@ -879,6 +880,45 @@ if(year[i]==String(k)){
 			      id_c++;
 		      }
 			      //wheat end
+			       //ragi st
+			      			            var row2=[];
+			      var row3=[];
+		      count=0;
+		      avg=0;
+			      		      row3[0]=[];
+		      row3[0][0]="Month";
+		      for(k=1;k<=f_len;k++){
+			     row3[0].push("Farm"+k); 
+		      }
+		      row3[0].push("Average");
+			       id_c=1;
+		      for(k=2014;k<2018;k++){
+		      data=[];
+			      count=0;
+			      avg=0;
+			      data.push(String(k));
+		      for(i=0;i<crop.length;i++){
+		      var comma = crop[i][0].split(",");
+        for (j = 0; j < comma.length; j++) {
+          var tempo=[];
+            tempo = comma[j].split("_")
+if(year[i]==String(k)){
+		if(String(tempo[0])=="maize"){
+			
+		data.push(parseInt(tempo[1]));
+			avg+=parseInt(tempo[1]);
+		}
+
+		
+        }    
+		      }
+			      count++;
+		      }
+			      data.push(parseFloat(avg/count));
+			      row3.push(data);
+			      id_c++;
+		      }
+			       //ragi end
 		      //document.getElementById("spam").innerHTML=row1[1];
 			      //var lenn=crop.length;
 		      var opt = {
@@ -899,14 +939,19 @@ if(year[i]==String(k)){
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
 			      var kk1=google.visualization.arrayToDataTable(row2);
+			       var kk2=google.visualization.arrayToDataTable(row3);
 			      var corn_btn = document.getElementById("corn");
-corn_btn.addEventListener("click", shit);
+			      corn_btn.addEventListener("click", shit);
 			      document.getElementById("rice").addEventListener("click", doshit);
+			      document.getElementById("maize").addEventListener("click", donoshit);
 			      function shit(){
 			      chart.draw(kk1, opt);
 			      }
 			      function doshit(){
 			      chart.draw(kk, opt);
+			      }
+			       function donoshit(){
+			      chart.draw(kk2, opt);
 			      }
 chart.draw(kk, opt);
 		      }
