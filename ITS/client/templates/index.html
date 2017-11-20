@@ -517,9 +517,10 @@ var l=[];
             var l = []   
 	    var gh=[]
             l.push("{{x.name|safe}}");
-	     gh.push("{{x.year|safe}}")
+	     gh.push("{{x.year|safe}}");
             //l.push({{x.output }});
             crop.push(l);
+	     ghg.push(gh);
             {% endfor %}
         </script>
     </div>
@@ -806,7 +807,7 @@ google.charts.setOnLoadCallback(drawChart);
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
-		if(String(tempo[0])=="rice"&&String(k)==gh[i]){
+		if(String(tempo[0])=="rice"&&String(k)==ghg[i]){
 		data.push(parseInt(tempo[1]));
 			avg+=parseInt(tempo[1]);
 		}
