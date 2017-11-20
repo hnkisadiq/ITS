@@ -151,7 +151,7 @@
         </div>
 	      <div class="row">
 		                <div class="col-lg-4 ml-auto" id="visual1">
-		  <button class="btn btn-primary" onclick="shit()">Corn</button>
+		  <button class="btn btn-primary" id="corn">Corn</button>
           </div>
 		      
 	      </div>
@@ -887,6 +887,8 @@ google.charts.setOnLoadCallback(drawChart);
 			      //hola[parseInt(crop.length)]= {type: "line"};
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
+			      var corn_btn = document.getElementById("corn");
+corn_btn.addEventListener("click", shit);
 			      function shit(){
 			      var kk1=google.visualization.arrayToDataTable(row2);
 			      chart.draw(kk1, opt);
