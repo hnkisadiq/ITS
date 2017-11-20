@@ -25,7 +25,7 @@
 
   <body id="page-top">
 <audio id="clip">
-  <source src="/static/SampleAudio_0.4mb.mp3"></source>
+	<source src="/static/SampleAudio_0.4mb.mp3"></source>
 </audio>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -59,9 +59,9 @@
           <span class="name">Profile</span>
           <hr class="star-light">
           <span class="skills">Farmer-Koushik</span>
-    <span id="spam"><span>
+		<span id="spam"><span>
         </div>
-        <i class="fa fa-microphone fa-3x" aria-hidden="true" id="audio1" onmouseenter="mouseEnter()"></i>
+	      <i class="fa fa-microphone fa-3x" aria-hidden="true" id="audio1" onmouseenter="mouseEnter()"></i>
       </div>
     </header>
 
@@ -142,18 +142,18 @@
         <h2 class="text-center">Statistics</h2>
         <hr class="star-light">
         <div class="row">
-          <div class="col-lg-8 ml-auto" id="visual1">   
+          <div class="col-lg-8 ml-auto" id="visual1">	  
           </div>
           <div class="col-lg-8 mx-auto text-center">
           </div>
         </div><br>
-        <div class="row">
-                    <div class="col-md-4 ml-auto" id="visual1">
-          <button class="btn btn-primary" id="rice">Rice</button>
-      <button class="btn btn-primary" id="corn">Corn</button>
+	      <div class="row">
+		                <div class="col-md-4 ml-auto" id="visual1">
+					<button class="btn btn-primary" id="rice">Rice</button>
+		  <button class="btn btn-primary" id="corn">Corn</button>
           </div>
-          
-        </div>
+		      
+	      </div>
       </div>
     </section>
 <br>
@@ -515,25 +515,25 @@ var l=[];
 </script>
         <script>
             var crop = [];
-      var year=[];
-    var farm_id=[]
+	    var year=[];
+		var farm_id=[]
             {% for x in crop %}
             var l = []   
-      var gh=[]
-      var ttr=[]
+	    var gh=[]
+	    var ttr=[]
             l.push("{{x.name|safe}}");
-       gh.push("{{x.year|safe}}");
-       ttr.push("{{x.c_id|safe}}")
+	     gh.push("{{x.year|safe}}");
+	     ttr.push("{{x.c_id|safe}}")
             //l.push({{x.output }});
             crop.push(l);
-       year.push(gh);
-       farm_id.push(ttr)
+	     year.push(gh);
+	     farm_id.push(ttr)
             {% endfor %}
         </script>
     </div>
 <!-- Script -->
 <script>
-//document.getElementById("spam").innerHTML=farm_id;
+document.getElementById("spam").innerHTML=farm_id;
 //house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 //well.push(["1",51.508742,-0.120850,"well",50]);
@@ -543,19 +543,19 @@ var l=[];
           {lat: 32.321, lng: -64.757},
           {lat: 25.774, lng: -80.190}
         ];*/
-  var audio=document.getElementById("clip");
-  function mouseEnter(){
+	var audio=document.getElementById("clip");
+	function mouseEnter(){
 //audio=document.getElementById("clip");
   audio.play();
-  }
-  function mouseLeave() {
+	}
+	function mouseLeave() {
   audio.pause();
-    audio.currentTime=0;
-  }
-function myMap() {
-      //visual1-start
+		audio.currentTime=0;
+	}
+    function myMap() {
+	    //visual1-start
 
-      //visual1-end
+	    //visual1-end
         var loc = new google.maps.LatLng(13.610041, 80.050782);
         var loc1 = new google.maps.LatLng(-33.8665433, 151.1956316);
 /*if (navigator.geolocation) {
@@ -564,7 +564,7 @@ function myMap() {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };*/
-      
+	    
 var mapProp1= {
     center:loc,
     zoom:15,
@@ -574,37 +574,36 @@ var mapProp1= {
         center: loc1,
         zoom: 15,
     };
-      var infoW = new google.maps.InfoWindow;
+	    var infoW = new google.maps.InfoWindow;
 
 var map1=new google.maps.Map(document.getElementById("map1"),mapProp1);
 var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
     var map3 = new google.maps.Map(document.getElementById("map3"), mapProp1);
     var map4 = new google.maps.Map(document.getElementById("map4"), mapProp2);
     var map5 = new google.maps.Map(document.getElementById("map5"), mapProp2);
-      //current location
-              if (navigator.geolocation) {
+	    //current location
+	            if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-      infoW.setContent("Your Location");
+	    infoW.setContent("Your Location");
             infoW.setPosition(pos);
             infoW.setContent('Location found.');
             infoW.open(map1);
             map1.setCenter(pos);
-      map2.setCenter(pos);
-      map3.setCenter(pos);
+		  map2.setCenter(pos);
+		  map3.setCenter(pos);
           }, function() {
             handleLocationError(true, infoW, map1.getCenter());
           });
-        }//e
-         else {
+        } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoW, map1.getCenter());
-        }//e
+        }
 
-      //end
+	    //end
 for (i = 0; i < house.length; i++) {
         addHouse(house[i]);
     }
@@ -617,8 +616,6 @@ for (i = 0; i < crop.length; i++) {
   tempo.push(crop[i][0]);
      addFarm(tempo);
 }
-      var infowin = new google.maps.InfoWindow();
-      var infowin1 = new google.maps.InfoWindow();
       //hospitals
     var request = {
         location: loc1,
@@ -628,17 +625,16 @@ for (i = 0; i < crop.length; i++) {
 
     service = new google.maps.places.PlacesService(map4);
     service.nearbySearch(request, callback);
-  }//ee
-              function callback(results, status) {
+    function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 var place = results[i];
                 createMarker(results[i]);
             }
         }
-    }//e
-      
-      
+    }
+      var infowin = new google.maps.InfoWindow();
+	    
       function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
@@ -650,9 +646,9 @@ for (i = 0; i < crop.length; i++) {
           infowin.setContent(place.name);
           infowin.open(map4, this);
         });
-      }//e
+      }
       //banks
-  /*    var request1 = {
+      var request1 = {
         location: loc1,
         radius: '500',
         type: ['bank']
@@ -668,7 +664,7 @@ for (i = 0; i < crop.length; i++) {
             }
         }
     }
-      
+      var infowin1 = new google.maps.InfoWindow();
       function createMarker1(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
@@ -680,10 +676,8 @@ for (i = 0; i < crop.length; i++) {
           infowin1.setContent(place.name);
           infowin1.open(map5, this);
         });
-      }*/
+      }
       //bus_stations
-      
-//bus end
 function addHouse(marker) {
     var category = marker[3];
     var title = marker[3];
@@ -730,7 +724,7 @@ function addHouse(marker) {
     anchor: new google.maps.Point(0, 0) // anchor
 }
 }
-}//e
+}
 function addWell(marker) {
     var category = marker[3];
     var title = marker[3];
@@ -763,8 +757,8 @@ function addWell(marker) {
     anchor: new google.maps.Point(0,0) // anchor
 }
 }
-}//e
-      
+}
+	    
 function addFarm(marker){
         var bermudaTriangle = new google.maps.Polygon({
           paths: marker[0],
@@ -784,107 +778,105 @@ function addFarm(marker){
         //alert the index of the polygon
         infowindow.open(map3, bermudaTriangle);
     });
-}//e
-
-            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+}
+}
+	          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map1);
-      }//e
-
+      }
 </script>
-
-        <!-- Analytics start-->
-        <script type="text/javascript">
-          google.charts.load('current', {packages: ['corechart']});
+	      <!-- Analytics start-->
+	      <script type="text/javascript">
+		      google.charts.load('current', {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawChart);
-          function drawChart(){
-                var row1=[];
-            //var row2=[];
-          var count=0;
-          var avg=0;
-            var f_len=0;
-            {% for term in farm %}
-            f_len+=1;
-            {% endfor %}
-            //rice start  
-          row1[0]=[];
-          row1[0][0]="Month";
-             var id_c=1;
-          for(k=1;k<=f_len;k++){
-            
-           row1[0].push("Farm"+k); 
-          }
-          row1[0].push("Average");
-          for(k=2014;k<2018;k++){
-          var data=[];
-            count=0;
-            avg=0;
-            data.push(String(k));
-          for(i=0;i<crop.length;i++){
-          var comma = crop[i][0].split(",");
+		      function drawChart(){
+	    		      var row1=[];
+			      //var row2=[];
+		      var count=0;
+		      var avg=0;
+			      var f_len=0;
+			      {% for term in farm %}
+			      f_len+=1;
+			      {% endfor %}
+			      //rice start	
+		      row1[0]=[];
+		      row1[0][0]="Month";
+			       var id_c=1;
+		      for(k=1;k<=f_len;k++){
+			      
+			     row1[0].push("Farm"+f_len); 
+		      }
+		      row1[0].push("Average");
+		      for(k=2014;k<2018;k++){
+		      var data=[];
+			      count=0;
+			      avg=0;
+			      data.push(String(k));
+		      for(i=0;i<crop.length;i++){
+		      var comma = crop[i][0].split(",");
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
-    if(year[i]==String(k)){
-    if(String(tempo[0])=="rice"){     
-    data.push(parseInt(tempo[1]));
-      avg+=parseInt(tempo[1]);
-    }   
-  }
+		if(year[i]==String(k)){
+		if(String(tempo[0])=="rice"){			
+		data.push(parseInt(tempo[1]));
+			avg+=parseInt(tempo[1]);
+		}		
+	}
         }    
-            count++;
-          }
-            data.push(parseFloat(avg/count));
-            row1.push(data);
-            id_c++;
-          }
-            //rice-end
-          //wheat start
-                  var row2=[];
-            //var row2=[];
-          count=0;
-          avg=0;
-                      row2[0]=[];
-          row2[0][0]="Month";
-          for(k=1;k<=f_len;k++){
-           row2[0].push("farm"+k); 
-          }
-          row2[0].push("Average");
-             id_c=1;
-          for(k=2014;k<2018;k++){
-          data=[];
-            count=0;
-            avg=0;
-            data.push(String(k));
-          for(i=0;i<crop.length;i++){
-          var comma = crop[i][0].split(",");
+			      count++;
+		      }
+			      data.push(parseFloat(avg/count));
+			      row1.push(data);
+			      id_c++;
+		      }
+			      //rice-end
+			    //wheat start
+			            var row2=[];
+			      //var row2=[];
+		      count=0;
+		      avg=0;
+			      		      row2[0]=[];
+		      row2[0][0]="Month";
+		      for(k=1;k<=f_len;k++){
+			     row2[0].push("farm"+k); 
+		      }
+		      row2[0].push("Average");
+			       id_c=1;
+		      for(k=2014;k<2018;k++){
+		      data=[];
+			      count=0;
+			      avg=0;
+			      data.push(String(k));
+		      for(i=0;i<crop.length;i++){
+		      var comma = crop[i][0].split(",");
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
 if(year[i]==String(k)){
-    if(String(tempo[0])=="corn"){
-      
-    data.push(parseInt(tempo[1]));
-      avg+=parseInt(tempo[1]);
-    }
+		if(String(tempo[0])=="corn"){
+			
+		data.push(parseInt(tempo[1]));
+			avg+=parseInt(tempo[1]);
+		}
 
-    
+		
         }    
-          }
-            count++;
-          }
-            data.push(parseFloat(avg/count));
-            row2.push(data);
-            id_c++;
-          }
-            //wheat end
-          document.getElementById("spam").innerHTML=row1[1];
-            //var lenn=crop.length;
-          var opt = {
-            title:"Yearly Crop Yields of each Farm",
+		      }
+			      count++;
+		      }
+			      data.push(parseFloat(avg/count));
+			      row2.push(data);
+			      id_c++;
+		      }
+			      //wheat end
+		      document.getElementById("spam").innerHTML=row1[1];
+			      //var lenn=crop.length;
+		      var opt = {
+			      title:"Yearly Crop Yields of each Farm",
       width: 400,
       height: 240,
       vAxis: {title: "Quintals"},
@@ -896,30 +888,30 @@ if(year[i]==String(k)){
         easing: 'out',
       },
     };
-           //var hola=opt["series"];
-            //hola[parseInt(crop.length)]= {type: "line"};
-          var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
-          var kk=google.visualization.arrayToDataTable(row1);
-            var kk1=google.visualization.arrayToDataTable(row2);
-            var corn_btn = document.getElementById("corn");
+			     //var hola=opt["series"];
+			      //hola[parseInt(crop.length)]= {type: "line"};
+		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
+		      var kk=google.visualization.arrayToDataTable(row1);
+			      var kk1=google.visualization.arrayToDataTable(row2);
+			      var corn_btn = document.getElementById("corn");
 corn_btn.addEventListener("click", shit);
-            document.getElementById("rice").addEventListener("click", doshit);
-            function shit(){
-            chart.draw(kk1, opt);
-            }
-            function doshit(){
-            chart.draw(kk, opt);
-            }
+			      document.getElementById("rice").addEventListener("click", doshit);
+			      function shit(){
+			      chart.draw(kk1, opt);
+			      }
+			      function doshit(){
+			      chart.draw(kk, opt);
+			      }
 chart.draw(kk, opt);
-          }
-        </script>
-        <!-- Analytics end-->
+		      }
+	      </script>
+	      <!-- Analytics end-->
     <!-- Bootstrap core JavaScript -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKHLb2OuY52CPNiJXFsgRm_Vdj899NmXI&libraries=places&callback=myMap">
 
     </script>
-        
+	      
     <script src="/static/client/vendor/jquery/jquery.min.js"></script>
     <script src="/static/client/vendor/popper/popper.min.js"></script>
     <script src="/static/client/vendor/bootstrap/js/bootstrap.min.js"></script>
