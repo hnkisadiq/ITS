@@ -581,8 +581,8 @@ var mapProp1= {
 var map1=new google.maps.Map(document.getElementById("map1"),mapProp1);
 var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
     var map3 = new google.maps.Map(document.getElementById("map3"), mapProp1);
-    //var map4 = new google.maps.Map(document.getElementById("map4"), mapProp2);
-     //var map5 = new google.maps.Map(document.getElementById("map5"), mapProp2);
+    var map4 = new google.maps.Map(document.getElementById("map4"), mapProp2);
+     var map5 = new google.maps.Map(document.getElementById("map5"), mapProp2);
 	    //current location
 	            if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -618,27 +618,8 @@ for (i = 0; i < crop.length; i++) {
   tempo.push(crop[i][0]);
      addFarm(tempo);
 }
-	    //sd
-	                  var pyrmont = {lat: -33.867, lng: 151.195};
-
-        var map4 = new google.maps.Map(document.getElementById('map4'), {
-          center: pyrmont,
-          zoom: 15
-        });
-
-        var infowindow12 = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map4);
-        service.nearbySearch({
-          location: pyrmont,
-          radius: 500,
-          type: ['store']
-        }, callback);
-      
-
-      
-	    //sd
       //hospitals
-    /*var request = {
+    var request = {
         location: loc1,
         radius: '500',
         type: ['restaurant']
@@ -697,7 +678,7 @@ for (i = 0; i < crop.length; i++) {
           infowin1.setContent(place.name);
           infowin1.open(map5, this);
         });
-      }*/
+      }
       //bus_stations
 function addHouse(marker) {
     var category = marker[3];
@@ -800,27 +781,8 @@ function addFarm(marker){
         infowindow.open(map3, bermudaTriangle);
     });
 }
-}
-	function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
-        }
-      }
+}//ee
 
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map4,
-          position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow12.setContent(place.name);
-          infowindow12.open(map4, this);
-        });
-      }  //ee
 	          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
