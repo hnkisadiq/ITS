@@ -805,9 +805,9 @@ google.charts.setOnLoadCallback(drawChart);
 		      row1[0]=[];
 		      row1[0][0]="Month";
 			       var id_c=1;
-		      for(k=1;k<=farm_id.length;k++){
+		      for(k=1;k<=f_len;k++){
 			      
-			     row1[0].push(farm_id[k-1]); 
+			     row1[0].push("Farm"+f_len); 
 		      }
 		      row1[0].push("Average");
 		      for(k=2014;k<2018;k++){
@@ -820,14 +820,11 @@ google.charts.setOnLoadCallback(drawChart);
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
-		if(id_c==parseInt(farm_id[i])){
-		if(String(tempo[0])=="rice"){
-			if(year[i]==String(k)){
+		if(year[i]==String(k)){
+		if(String(tempo[0])=="rice"){			
 		data.push(parseInt(tempo[1]));
 			avg+=parseInt(tempo[1]);
-		}
-
-		}
+		}		
 	}
         }    
 			      count++;
@@ -859,9 +856,9 @@ google.charts.setOnLoadCallback(drawChart);
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
-
+if(year[i]==String(k)){
 		if(String(tempo[0])=="corn"){
-			if(year[i]==String(k)){
+			
 		data.push(parseInt(tempo[1]));
 			avg+=parseInt(tempo[1]);
 		}
