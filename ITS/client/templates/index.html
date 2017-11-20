@@ -142,18 +142,16 @@
         <h2 class="text-center">Statistics</h2>
         <hr class="star-light">
         <div class="row">
-          <div class="col-lg-8 ml-auto" id="visual1">	  
+          <div class="col-lg-4 ml-auto" id="visual1">
+		  
+          </div>
+          <div class="col-lg-4 mr-auto">
+           <button class="btn btn-primary" onclick="wheat()">Wheat</button>
           </div>
           <div class="col-lg-8 mx-auto text-center">
+
           </div>
-        </div><br>
-	      <div class="row">
-		                <div class="col-md-4 ml-auto" id="visual1">
-					<button class="btn btn-primary" id="rice">Rice</button>
-		  <button class="btn btn-primary" id="corn">Corn</button>
-          </div>
-		      
-	      </div>
+        </div>
       </div>
     </section>
 <br>
@@ -515,25 +513,19 @@ var l=[];
 </script>
         <script>
             var crop = [];
-	    var year=[];
-		var farm_id=[]
             {% for x in crop %}
             var l = []   
 	    var gh=[]
-	    var ttr=[]
             l.push("{{x.name|safe}}");
-	     gh.push("{{x.year|safe}}");
-	     ttr.push("{{x.c_id|safe}}")
+	     gh.push("{{x.year|safe}}")
             //l.push({{x.output }});
             crop.push(l);
-	     year.push(gh);
-	     farm_id.push(ttr)
             {% endfor %}
         </script>
     </div>
 <!-- Script -->
 <script>
-//document.getElementById("spam").innerHTML=farm_id;
+document.getElementById("spam").innerHTML=crop[0][0];
 //house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 //well.push(["1",51.508742,-0.120850,"well",50]);
@@ -794,20 +786,14 @@ function addFarm(marker){
 google.charts.setOnLoadCallback(drawChart);
 		      function drawChart(){
 	    		      var row1=[];
-			      //var row2=[];
+			      var row2=[];
 		      var count=0;
 		      var avg=0;
-			      var f_len=0;
-			      {% for term in farm %}
-			      f_len+=1;
-			      {% endfor %}
 			      //rice start	
 		      row1[0]=[];
 		      row1[0][0]="Month";
-			       var id_c=1;
-		      for(k=1;k<=farm_id.length;k++){
-			      
-			     row1[0].push(farm_id[k-1]); 
+		      for(k=1;k<=crop.length;k++){
+			     row1[0].push("farm"+String(k)); 
 		      }
 		      row1[0].push("Average");
 		      for(k=2014;k<2018;k++){
@@ -820,60 +806,19 @@ google.charts.setOnLoadCallback(drawChart);
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
-		
-		if(String(tempo[0])=="rice"&&(id_c==parseInt(farm_id[i]))){
-			if(year[i]==String(k)){
+		if(String(tempo[0])=="rice"&&String(k)==gh[i]){
 		data.push(parseInt(tempo[1]));
 			avg+=parseInt(tempo[1]);
-		}
-
 		}
         }    
 			      count++;
 		      }
 			      data.push(parseFloat(avg/count));
 			      row1.push(data);
-			      id_c++;
 		      }
 			      //rice-end
-			    //wheat start
-			            var row2=[];
-			      //var row2=[];
-		      count=0;
-		      avg=0;
-			      		      row2[0]=[];
-		      row2[0][0]="Month";
-		      for(k=1;k<=f_len;k++){
-			     row2[0].push("farm"+k); 
-		      }
-		      row2[0].push("Average");
-			       id_c=1;
-		      for(k=2014;k<2018;k++){
-		      data=[];
-			      count=0;
-			      avg=0;
-			      data.push(String(k));
-		      for(i=0;i<crop.length;i++){
-		      var comma = crop[i][0].split(",");
-        for (j = 0; j < comma.length; j++) {
-          var tempo=[];
-            tempo = comma[j].split("_")
-		if(String(tempo[0])=="corn"){
-			if(year[i]==String(k)&&(id_c==parseInt(farm_id[i]))){
-		data.push(parseInt(tempo[1]));
-			avg+=parseInt(tempo[1]);
-		}
-
-		}
-        }    
-			      count++;
-		      }
-			      data.push(parseFloat(avg/count));
-			      row2.push(data);
-			      id_c++;
-		      }
-			      //wheat end
-		      //document.getElementById("spam").innerHTML=row2;
+			      
+		      document.getElementById("spam").innerHTML=row1;
 			      //var lenn=crop.length;
 		      var opt = {
 			      title:"Yearly Crop Yields of each Farm",
@@ -882,7 +827,7 @@ google.charts.setOnLoadCallback(drawChart);
       vAxis: {title: "Quintals"},
       hAxis: {title: "Month"},
       seriesType: "bars",
-      series: {4: {type: "line"}},
+      series: {3: {type: "line"}},
       animation:{
         duration: 1000,
         easing: 'out',
@@ -892,16 +837,7 @@ google.charts.setOnLoadCallback(drawChart);
 			      //hola[parseInt(crop.length)]= {type: "line"};
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
-			      var kk1=google.visualization.arrayToDataTable(row2);
-			      var corn_btn = document.getElementById("corn");
-corn_btn.addEventListener("click", shit);
-			      document.getElementById("rice").addEventListener("click", doshit);
-			      function shit(){
-			      chart.draw(kk1, opt);
-			      }
-			      function doshit(){
-			      chart.draw(kk, opt);
-			      }
+			      //var kk1=google.visualization.arrayToDataTable(row2);
 chart.draw(kk, opt);
 		      }
 	      </script>
