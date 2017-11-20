@@ -552,7 +552,9 @@ document.getElementById("spam").innerHTML=farm_id;
   audio.pause();
 		audio.currentTime=0;
 	}
-    function myMap() {
+	var map4;
+	var map5;
+    
 	    //visual1-start
 
 	    //visual1-end
@@ -575,12 +577,12 @@ var mapProp1= {
         zoom: 15,
     };
 	    var infoW = new google.maps.InfoWindow;
-
+function myMap() {
 var map1=new google.maps.Map(document.getElementById("map1"),mapProp1);
 var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
     var map3 = new google.maps.Map(document.getElementById("map3"), mapProp1);
-    var map4 = new google.maps.Map(document.getElementById("map4"), mapProp2);
-    var map5 = new google.maps.Map(document.getElementById("map5"), mapProp2);
+    map4 = new google.maps.Map(document.getElementById("map4"), mapProp2);
+    map5 = new google.maps.Map(document.getElementById("map5"), mapProp2);
 	    //current location
 	            if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -616,6 +618,9 @@ for (i = 0; i < crop.length; i++) {
   tempo.push(crop[i][0]);
      addFarm(tempo);
 }
+	    //sd
+	            
+	    //sd
       //hospitals
     var request = {
         location: loc1,
