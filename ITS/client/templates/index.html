@@ -533,7 +533,7 @@ var l=[];
     </div>
 <!-- Script -->
 <script>
-document.getElementById("spam").innerHTML=farm_id;
+//document.getElementById("spam").innerHTML=farm_id;
 //house.push(["1",51.508742,-0.120850,"house",1200,12000]);
 
 //well.push(["1",51.508742,-0.120850,"well",50]);
@@ -804,8 +804,10 @@ google.charts.setOnLoadCallback(drawChart);
 			      //rice start	
 		      row1[0]=[];
 		      row1[0][0]="Month";
-		      for(k=1;k<=f_len;k++){
-			     row1[0].push("Farm"+k); 
+			       var id_c=1;
+		      for(k=1;k<=farm_id.length;k++){
+			      
+			     row1[0].push(farm_id[k-1]); 
 		      }
 		      row1[0].push("Average");
 		      for(k=2014;k<2018;k++){
@@ -819,7 +821,7 @@ google.charts.setOnLoadCallback(drawChart);
           var tempo=[];
             tempo = comma[j].split("_")
 		
-		if(String(tempo[0])=="rice"){
+		if(String(tempo[0])=="rice"&&(id_c==parseInt(farm_id[i]))){
 			if(year[i]==String(k)){
 		data.push(parseInt(tempo[1]));
 			avg+=parseInt(tempo[1]);
@@ -831,6 +833,7 @@ google.charts.setOnLoadCallback(drawChart);
 		      }
 			      data.push(parseFloat(avg/count));
 			      row1.push(data);
+			      id_c++;
 		      }
 			      //rice-end
 			    //wheat start
@@ -844,6 +847,7 @@ google.charts.setOnLoadCallback(drawChart);
 			     row2[0].push("farm"+k); 
 		      }
 		      row2[0].push("Average");
+			       id_c=1;
 		      for(k=2014;k<2018;k++){
 		      data=[];
 			      count=0;
@@ -855,7 +859,7 @@ google.charts.setOnLoadCallback(drawChart);
           var tempo=[];
             tempo = comma[j].split("_")
 		if(String(tempo[0])=="corn"){
-			if(year[i]==String(k)){
+			if(year[i]==String(k)&&(id_c==parseInt(farm_id[i]))){
 		data.push(parseInt(tempo[1]));
 			avg+=parseInt(tempo[1]);
 		}
@@ -866,6 +870,7 @@ google.charts.setOnLoadCallback(drawChart);
 		      }
 			      data.push(parseFloat(avg/count));
 			      row2.push(data);
+			      id_c++;
 		      }
 			      //wheat end
 		      //document.getElementById("spam").innerHTML=row2;
