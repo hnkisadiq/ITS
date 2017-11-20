@@ -621,13 +621,13 @@ for (i = 0; i < crop.length; i++) {
 	    //sd
 	                  var pyrmont = {lat: -33.867, lng: 151.195};
 
-        var map = new google.maps.Map(document.getElementById('map4'), {
+        var map4 = new google.maps.Map(document.getElementById('map4'), {
           center: pyrmont,
           zoom: 15
         });
 
-        infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
+        var infowindow12 = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map4);
         service.nearbySearch({
           location: pyrmont,
           radius: 500,
@@ -646,13 +646,13 @@ for (i = 0; i < crop.length; i++) {
       function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
-          map: map,
+          map: map4,
           position: place.geometry.location
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
+          infowindow12.setContent(place.name);
+          infowindow12.open(map4, this);
         });
       }  
 	    //sd
