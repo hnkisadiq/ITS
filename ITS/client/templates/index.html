@@ -627,7 +627,28 @@ for (i = 0; i < crop.length; i++) {
 
     service = new google.maps.places.PlacesService(map4);
     service.nearbySearch(request, callback);
-    
+    		      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                createMarker(results[i]);
+            }
+        }
+    }
+      
+	    
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map4,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowin.setContent(place.name);
+          infowin.open(map4, this);
+        });
+      }
       //banks
   /*    var request1 = {
         location: loc1,
@@ -762,7 +783,7 @@ function addFarm(marker){
         infowindow.open(map3, bermudaTriangle);
     });
 }
-}
+
 	          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -772,28 +793,7 @@ function addFarm(marker){
       }
 </script>
 	      <script>
-		      function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                var place = results[i];
-                createMarker(results[i]);
-            }
-        }
-    }
-      
-	    
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map4,
-          position: place.geometry.location
-        });
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowin.setContent(place.name);
-          infowin.open(map4, this);
-        });
-      }
 	      </script>
 	      <!-- Analytics start-->
 	      <script type="text/javascript">
