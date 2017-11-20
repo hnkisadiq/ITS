@@ -516,14 +516,18 @@ var l=[];
         <script>
             var crop = [];
 	    var year=[];
+		var farm_id=[]
             {% for x in crop %}
             var l = []   
 	    var gh=[]
+	    var ttr=[]
             l.push("{{x.name|safe}}");
 	     gh.push("{{x.year|safe}}");
+	     ttr.push("{{x.farm_id|safe}}")
             //l.push({{x.output }});
             crop.push(l);
 	     year.push(gh);
+	     farm_id.push(ttr)
             {% endfor %}
         </script>
     </div>
@@ -793,11 +797,15 @@ google.charts.setOnLoadCallback(drawChart);
 			      //var row2=[];
 		      var count=0;
 		      var avg=0;
+			      var f_len=0;
+			      {% for term in farm %}
+			      f_len+=1;
+			      {% endfor %}
 			      //rice start	
 		      row1[0]=[];
 		      row1[0][0]="Month";
-		      for(k=1;k<=crop.length;k++){
-			     row1[0].push("farm"+String(k)); 
+		      for(k=1;k<=f_len;k++){
+			     row1[0].push("Farm"+farm_id[k]); 
 		      }
 		      row1[0].push("Average");
 		      for(k=2014;k<2018;k++){
@@ -810,6 +818,7 @@ google.charts.setOnLoadCallback(drawChart);
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
+		
 		if(String(tempo[0])=="rice"){
 			if(year[i]==String(k)){
 		data.push(parseInt(tempo[1]));
@@ -835,8 +844,8 @@ google.charts.setOnLoadCallback(drawChart);
 		      avg=0;
 			      		      row2[0]=[];
 		      row2[0][0]="Month";
-		      for(k=1;k<=crop.length;k++){
-			     row2[0].push("farm"+String(k)); 
+		      for(k=1;k<=f_len;k++){
+			     row2[0].push("farm"+farm_id[k]); 
 		      }
 		      row2[0].push("Average");
 		      for(k=2014;k<2018;k++){
@@ -876,7 +885,7 @@ google.charts.setOnLoadCallback(drawChart);
       vAxis: {title: "Quintals"},
       hAxis: {title: "Month"},
       seriesType: "bars",
-      series: {3: {type: "line"}},
+      series: {4: {type: "line"}},
       animation:{
         duration: 1000,
         easing: 'out',
