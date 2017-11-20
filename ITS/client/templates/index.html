@@ -59,7 +59,7 @@
           <span class="name">Profile</span>
           <hr class="star-light">
           <span class="skills">Farmer-Koushik</span>
-		<span id="spam"></span>
+		<span id="spam"><span>
         </div>
 	      <i class="fa fa-microphone fa-3x" aria-hidden="true" id="audio1" onmouseenter="mouseEnter()"></i>
       </div>
@@ -186,7 +186,7 @@
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Phone Number</label>
-                  <input class="form-control" id="phone" name= "phn_num" type="tel" placeholder="Phone Number" required data-validation-required-message="Please enter your phone number.">
+                  <input class="form-control" id="phone" name= "phn_num"type="tel" placeholder="Phone Number" required data-validation-required-message="Please enter your phone number.">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -292,11 +292,9 @@
 <script>
 var slideIndex = 1;
 showDivs(slideIndex);
-
 function plusDivs(n) {
   showDivs(slideIndex += n);
 }
-
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
@@ -535,7 +533,6 @@ var l=[];
 <script>
 //document.getElementById("spam").innerHTML=farm_id;
 //house.push(["1",51.508742,-0.120850,"house",1200,12000]);
-
 //well.push(["1",51.508742,-0.120850,"well",50]);
  /* var s = [
           {lat: 25.774, lng: -80.190},
@@ -554,7 +551,6 @@ var l=[];
 	}
     function myMap() {
 	    //visual1-start
-
 	    //visual1-end
         var loc = new google.maps.LatLng(13.610041, 80.050782);
         var loc1 = new google.maps.LatLng(-33.8665433, 151.1956316);
@@ -575,7 +571,6 @@ var mapProp1= {
         zoom: 15,
     };
 	    var infoW = new google.maps.InfoWindow;
-
 var map1=new google.maps.Map(document.getElementById("map1"),mapProp1);
 var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
     var map3 = new google.maps.Map(document.getElementById("map3"), mapProp1);
@@ -602,7 +597,6 @@ var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
           // Browser doesn't support Geolocation
           handleLocationError(false, infoW, map1.getCenter());
         }
-
 	    //end
 for (i = 0; i < house.length; i++) {
         addHouse(house[i]);
@@ -622,7 +616,6 @@ for (i = 0; i < crop.length; i++) {
         radius: '500',
         type: ['restaurant']
     };
-
     service = new google.maps.places.PlacesService(map4);
     service.nearbySearch(request, callback);
     function callback(results, status) {
@@ -641,7 +634,6 @@ for (i = 0; i < crop.length; i++) {
           map: map4,
           position: place.geometry.location
         });
-
         google.maps.event.addListener(marker, 'click', function() {
           infowin.setContent(place.name);
           infowin.open(map4, this);
@@ -653,7 +645,6 @@ for (i = 0; i < crop.length; i++) {
         radius: '500',
         type: ['bank']
     };
-
     service1 = new google.maps.places.PlacesService(map5);
     service1.nearbySearch(request1, callback1);
     function callback1(results, status) {
@@ -671,7 +662,6 @@ for (i = 0; i < crop.length; i++) {
           map: map5,
           position: place.geometry.location
         });
-
         google.maps.event.addListener(marker, 'click', function() {
           infowin1.setContent(place.name);
           infowin1.open(map5, this);
@@ -713,7 +703,6 @@ function addHouse(marker) {
 //      var s = img;
 //var ss = s.split(",");
    //   document.getElementById("img1").src=ss[0];
-
 }
   function icon(income) {
     income=((income)/1000)+20;
@@ -743,7 +732,6 @@ function addWell(marker) {
   var infowindow = new google.maps.InfoWindow({
     content: con
   });
-
             marker1.addListener('click', function() {
           map2.setZoom(8);
           map1.setCenter(marker1.getPosition());
@@ -789,12 +777,127 @@ function addFarm(marker){
       }
 </script>
 	      <!-- Analytics start-->
-
+	      <script type="text/javascript">
+		      google.charts.load('current', {packages: ['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+		      function drawChart(){
+	    		      var row1=[];
+			      //var row2=[];
+		      var count=0;
+		      var avg=0;
+			      var f_len=0;
+			      {% for term in farm %}
+			      f_len+=1;
+			      {% endfor %}
+			      //rice start	
+		      row1[0]=[];
+		      row1[0][0]="Month";
+			       var id_c=1;
+		      for(k=1;k<=farm_id.length;k++){
+			      
+			     row1[0].push(farm_id[k-1]); 
+		      }
+		      row1[0].push("Average");
+		      for(k=2014;k<2018;k++){
+		      var data=[];
+			      count=0;
+			      avg=0;
+			      data.push(String(k));
+		      for(i=0;i<crop.length;i++){
+		      var comma = crop[i][0].split(",");
+        for (j = 0; j < comma.length; j++) {
+          var tempo=[];
+            tempo = comma[j].split("_")
+		if(id_c==parseInt(farm_id[i])){
+		if(String(tempo[0])=="rice"){
+			if(year[i]==String(k)){
+		data.push(parseInt(tempo[1]));
+			avg+=parseInt(tempo[1]);
+		}
+		}
+	}
+        }    
+			      count++;
+		      }
+			      data.push(parseFloat(avg/count));
+			      row1.push(data);
+			      id_c++;
+		      }
+			      //rice-end
+			    //wheat start
+			            var row2=[];
+			      //var row2=[];
+		      count=0;
+		      avg=0;
+			      		      row2[0]=[];
+		      row2[0][0]="Month";
+		      for(k=1;k<=f_len;k++){
+			     row2[0].push("farm"+k); 
+		      }
+		      row2[0].push("Average");
+			       id_c=1;
+		      for(k=2014;k<2018;k++){
+		      data=[];
+			      count=0;
+			      avg=0;
+			      data.push(String(k));
+		      for(i=0;i<crop.length;i++){
+		      var comma = crop[i][0].split(",");
+        for (j = 0; j < comma.length; j++) {
+          var tempo=[];
+            tempo = comma[j].split("_")
+		if(id_c==parseInt(farm_id[i])){
+		if(String(tempo[0])=="corn"){
+			if(year[i]==String(k)){
+		data.push(parseInt(tempo[1]));
+			avg+=parseInt(tempo[1]);
+		}
+		}
+        }    
+		      }
+			      count++;
+		      }
+			      data.push(parseFloat(avg/count));
+			      row2.push(data);
+			      id_c++;
+		      }
+			      //wheat end
+		      document.getElementById("spam").innerHTML=row1;
+			      //var lenn=crop.length;
+		      var opt = {
+			      title:"Yearly Crop Yields of each Farm",
+      width: 400,
+      height: 240,
+      vAxis: {title: "Quintals"},
+      hAxis: {title: "Month"},
+      seriesType: "bars",
+      series: {4: {type: "line"}},
+      animation:{
+        duration: 1000,
+        easing: 'out',
+      },
+    };
+			     //var hola=opt["series"];
+			      //hola[parseInt(crop.length)]= {type: "line"};
+		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
+		      var kk=google.visualization.arrayToDataTable(row1);
+			      var kk1=google.visualization.arrayToDataTable(row2);
+			      var corn_btn = document.getElementById("corn");
+corn_btn.addEventListener("click", shit);
+			      document.getElementById("rice").addEventListener("click", doshit);
+			      function shit(){
+			      chart.draw(kk1, opt);
+			      }
+			      function doshit(){
+			      chart.draw(kk, opt);
+			      }
+chart.draw(kk, opt);
+		      }
+	      </script>
 	      <!-- Analytics end-->
     <!-- Bootstrap core JavaScript -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKHLb2OuY52CPNiJXFsgRm_Vdj899NmXI&libraries=places&callback=myMap">
-
     </script>
 	      
     <script src="/static/client/vendor/jquery/jquery.min.js"></script>
