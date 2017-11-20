@@ -847,7 +847,7 @@ google.charts.setOnLoadCallback(drawChart);
         for (j = 0; j < comma.length; j++) {
           var tempo=[];
             tempo = comma[j].split("_")
-		if(String(tempo[0])=="wheat"){
+		if(String(tempo[0])=="corn"){
 			if(year[i]==String(k)){
 		data.push(parseInt(tempo[1]));
 			avg+=parseInt(tempo[1]);
@@ -884,7 +884,7 @@ google.charts.setOnLoadCallback(drawChart);
 			      //hola[parseInt(crop.length)]= {type: "line"};
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
-			      //var kk1=google.visualization.arrayToDataTable(row2);
+			      var kk1=google.visualization.arrayToDataTable(row2);
 chart.draw(kk, opt);
 		      }
 	      </script>
