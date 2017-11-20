@@ -143,10 +143,10 @@
         <hr class="star-light">
         <div class="row">
           <div class="col-lg-4 ml-auto" id="visual1">
-		  
+          
           </div>
           <div class="col-lg-4 mr-auto">
-           <button class="btn btn-primary" onclick="wheat()">Wheat</button>
+           
           </div>
           <div class="col-lg-8 mx-auto text-center">
 
@@ -290,9 +290,11 @@
 <script>
 var slideIndex = 1;
 showDivs(slideIndex);
+
 function plusDivs(n) {
   showDivs(slideIndex += n);
 }
+
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
@@ -524,6 +526,7 @@ var l=[];
 <script>
 document.getElementById("spam").innerHTML=crop[0][0];
 //house.push(["1",51.508742,-0.120850,"house",1200,12000]);
+
 //well.push(["1",51.508742,-0.120850,"well",50]);
  /* var s = [
           {lat: 25.774, lng: -80.190},
@@ -542,6 +545,7 @@ document.getElementById("spam").innerHTML=crop[0][0];
 	}
     function myMap() {
 	    //visual1-start
+
 	    //visual1-end
         var loc = new google.maps.LatLng(13.610041, 80.050782);
         var loc1 = new google.maps.LatLng(-33.8665433, 151.1956316);
@@ -562,6 +566,7 @@ var mapProp1= {
         zoom: 15,
     };
 	    var infoW = new google.maps.InfoWindow;
+
 var map1=new google.maps.Map(document.getElementById("map1"),mapProp1);
 var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
     var map3 = new google.maps.Map(document.getElementById("map3"), mapProp1);
@@ -588,6 +593,7 @@ var map2=new google.maps.Map(document.getElementById("map2"),mapProp1);
           // Browser doesn't support Geolocation
           handleLocationError(false, infoW, map1.getCenter());
         }
+
 	    //end
 for (i = 0; i < house.length; i++) {
         addHouse(house[i]);
@@ -607,6 +613,7 @@ for (i = 0; i < crop.length; i++) {
         radius: '500',
         type: ['restaurant']
     };
+
     service = new google.maps.places.PlacesService(map4);
     service.nearbySearch(request, callback);
     function callback(results, status) {
@@ -625,6 +632,7 @@ for (i = 0; i < crop.length; i++) {
           map: map4,
           position: place.geometry.location
         });
+
         google.maps.event.addListener(marker, 'click', function() {
           infowin.setContent(place.name);
           infowin.open(map4, this);
@@ -636,6 +644,7 @@ for (i = 0; i < crop.length; i++) {
         radius: '500',
         type: ['bank']
     };
+
     service1 = new google.maps.places.PlacesService(map5);
     service1.nearbySearch(request1, callback1);
     function callback1(results, status) {
@@ -653,6 +662,7 @@ for (i = 0; i < crop.length; i++) {
           map: map5,
           position: place.geometry.location
         });
+
         google.maps.event.addListener(marker, 'click', function() {
           infowin1.setContent(place.name);
           infowin1.open(map5, this);
@@ -694,6 +704,7 @@ function addHouse(marker) {
 //      var s = img;
 //var ss = s.split(",");
    //   document.getElementById("img1").src=ss[0];
+
 }
   function icon(income) {
     income=((income)/1000)+20;
@@ -723,6 +734,7 @@ function addWell(marker) {
   var infowindow = new google.maps.InfoWindow({
     content: con
   });
+
             marker1.addListener('click', function() {
           map2.setZoom(8);
           map1.setCenter(marker1.getPosition());
@@ -773,10 +785,8 @@ function addFarm(marker){
 google.charts.setOnLoadCallback(drawChart);
 		      function drawChart(){
 	    		      var row1=[];
-			      var row2=[];
 		      var count=0;
 		      var avg=0;
-			      //rice start	
 		      row1[0]=[];
 		      row1[0][0]="Month";
 		      for(k=1;k<=crop.length;k++){
@@ -803,37 +813,8 @@ google.charts.setOnLoadCallback(drawChart);
 			      data.push(parseFloat(avg/count));
 			      row1.push(data);
 		      }
-			      //rice-end
-			      //wheat start
-			      row2[0]=[];
-		      row2[0][0]="Month";
-		      for(k=1;k<=crop.length;k++){
-			     row2[0].push("farm"+String(k)); 
-		      }
-		      row2[0].push("Average");
-		      for(k=2014;k<2018;k++){
-		      var data=[];
-			      count=0;
-			      avg=0;
-			      data.push(String(k));
-		      for(i=0;i<crop.length;i++){
-		      var comma = crop[i][0].split(",");
-        for (j = 0; j < comma.length; j++) {
-          var tempo=[];
-            tempo = comma[j].split("_")
-		if(String(tempo[0])=="wheat"){
-		data.push(parseInt(tempo[1]));
-			avg+=parseInt(tempo[1]);
-		}
-        }    
-			      count++;
-		      }
-			      data.push(parseFloat(avg/count));
-			      row2.push(data);
-		      }
-			      //wheat end
 		      document.getElementById("spam").innerHTML=row1;
-			      //var lenn=crop.length;
+			      var lenn=crop.length;
 		      var opt = {
 			      title:"Yearly Crop Yields of each Farm",
       width: 400,
@@ -851,17 +832,14 @@ google.charts.setOnLoadCallback(drawChart);
 			      //hola[parseInt(crop.length)]= {type: "line"};
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
-			      var kk1=google.visualization.arrayToDataTable(row2);
 chart.draw(kk, opt);
-			      function wheat(){
-			      chart.draw(kk1,opt);
-			      }
 		      }
 	      </script>
 	      <!-- Analytics end-->
     <!-- Bootstrap core JavaScript -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKHLb2OuY52CPNiJXFsgRm_Vdj899NmXI&libraries=places&callback=myMap">
+
     </script>
 	      
     <script src="/static/client/vendor/jquery/jquery.min.js"></script>
