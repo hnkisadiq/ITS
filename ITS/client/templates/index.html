@@ -142,15 +142,14 @@
         <h2 class="text-center">Statistics</h2>
         <hr class="star-light">
         <div class="row">
-          <div class="col-lg-8 ml-auto" id="visual1">
-		  
+          <div class="col-lg-8 ml-auto" id="visual1">	  
           </div>
           <div class="col-lg-8 mx-auto text-center">
-
           </div>
-        </div>
+        </div><br>
 	      <div class="row">
-		                <div class="col-lg-4 ml-auto" id="visual1">
+		                <div class="col-md-4 ml-auto" id="visual1">
+					<button class="btn btn-primary" id="rice">Corn</button>
 		  <button class="btn btn-primary" id="corn">Corn</button>
           </div>
 		      
@@ -887,11 +886,15 @@ google.charts.setOnLoadCallback(drawChart);
 			      //hola[parseInt(crop.length)]= {type: "line"};
 		      var chart = new google.visualization.ComboChart(document.getElementById('visual1'));
 		      var kk=google.visualization.arrayToDataTable(row1);
+			      var kk1=google.visualization.arrayToDataTable(row2);
 			      var corn_btn = document.getElementById("corn");
 corn_btn.addEventListener("click", shit);
+			      document.getElementById("rice").addEventListener("click", doshit);
 			      function shit(){
-			      var kk1=google.visualization.arrayToDataTable(row2);
 			      chart.draw(kk1, opt);
+			      }
+			      function shit(){
+			      chart.draw(kk, opt);
 			      }
 chart.draw(kk, opt);
 		      }
